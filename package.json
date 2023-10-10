@@ -32,6 +32,7 @@
 	},
 	"type": "module",
 	"dependencies": {
-		"@floating-ui/dom": "^1.5.3"
+		"@floating-ui/dom": "^1.5.3",
+		"@sveltejs/adapter-cloudflare": "^2.3.3"
 	}
 }
