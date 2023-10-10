@@ -1,6 +1,7 @@
 <script>
 import '../app.css';
 import { AppShell, AppBar } from '@skeletonlabs/skeleton';
+import { Logo, Icon, ThemeSwitch } from '$lib';
 </script>
 
 <AppShell>
@@ -11,9 +12,15 @@ import { AppShell, AppBar } from '@skeletonlabs/skeleton';
   <!-- (sidebarRight) -->
   <svelte:fragment slot="pageHeader">
     <AppBar>
-      <svelte:fragment slot="lead">(icon)</svelte:fragment>
-      (title)
-      <svelte:fragment slot="trail">(actions)</svelte:fragment>
+      <svelte:fragment slot="lead">
+        <button class="btn-icon variant-soft">
+          <Icon name="Menu" />
+        </button>
+      </svelte:fragment>
+      <Logo class="w-auto h-[3rem]" />
+      <svelte:fragment slot="trail">
+        <ThemeSwitch />
+      </svelte:fragment>
     </AppBar>
   </svelte:fragment>
   <!-- Router Slot -->

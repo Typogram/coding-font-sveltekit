@@ -1,3 +1,35 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* seafoam theme */
+@font-face {
+  font-family: 'Playfair Display';
+  src: url('/fonts/PlayfairDisplay-Italic.ttf');
+  font-display: swap;
+  font-style: italic;
+}
+
+/* modern theme */
+/* gold-nouveau theme */
+@font-face {
+  font-family: 'Quicksand';
+  src: url('/fonts/Quicksand.ttf');
+  font-display: swap;
+  font-weight: 700;
+}
+
+/* rocket theme */
+@font-face {
+  font-family: 'Space Grotesk';
+  src: url('/fonts/SpaceGrotesk.ttf');
+  font-display: swap;
+  font-weight: 700;
+}
+
+/* vintage theme */
+@font-face {
+  font-family: 'Abril Fatface';
+  src: url('/fonts/AbrilFatface.ttf');
+  font-display: swap;
+}
