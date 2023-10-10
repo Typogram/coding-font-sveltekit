@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+html,
+body {
+  @apply h-full overflow-hidden;
+}
 /* seafoam theme */
 @font-face {
   font-family: 'Playfair Display';
