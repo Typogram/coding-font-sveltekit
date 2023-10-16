@@ -6,9 +6,11 @@ import jsonWorker from 'monaco-editor/esm/vs/language/json/json.worker?worker';
 import cssWorker from 'monaco-editor/esm/vs/language/css/css.worker?worker';
 import htmlWorker from 'monaco-editor/esm/vs/language/html/html.worker?worker';
 import tsWorker from 'monaco-editor/esm/vs/language/typescript/ts.worker?worker';
+import { monacoThemes } from './monacoThemes';
 
 export let fontFamily = "'Major Mono Display', monospace";
 export let fontSize = 20;
+export let themeName = 'monokai';
 export let code = `onMount(() => {
   monaco.editor.create(editorContainer, {
     value: code,
@@ -20,6 +22,7 @@ export let code = `onMount(() => {
 });
 `;
 
+let editor;
 let editorContainer;
 
 self.MonacoEnvironment = {
@@ -40,15 +43,27 @@ self.MonacoEnvironment = {
   }
 };
 
-onMount(() => {
-  monaco.editor.create(editorContainer, {
+function defineALlThemes() {
+  monacoThemes.forEach((theme) => {
+    monaco.editor.defineTheme(theme.slug, theme.themeData);
+  });
+}
+
+onMount(async () => {
+  defineALlThemes();
+  editor = monaco.editor.create(editorContainer, {
     value: code,
     language: 'javascript',
     theme: 'vs-dark',
     fontFamily: fontFamily,
     fontSize: fontSize
   });
+  editor.updateOptions({ theme: 'xcode-default' });
 });
+
+$: if (themeName && editor) {
+  editor.updateOptions({ theme: themeName });
+}
 </script>
 
 <div class="w-full h-full" bind:this="{editorContainer}"></div>
