@@ -2,7 +2,7 @@
 import { CodePreview, MonacoEditor } from '$lib';
 import { monacoThemeNames } from '$lib/monacoThemes';
 
-let selectedTheme: string;
+let selectedTheme: string = 'monokai';
 </script>
 
 <div class="h-full bg-surface-50-900-token p-4">
