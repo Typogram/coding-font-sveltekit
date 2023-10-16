@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Major+Mono+Display&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -6,6 +8,8 @@ html,
 body {
   @apply h-full overflow-hidden;
 }
+
+
 /* seafoam theme */
 @font-face {
   font-family: 'Playfair Display';

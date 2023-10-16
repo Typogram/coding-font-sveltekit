@@ -4,5 +4,6 @@ import Icon from './Icon.svelte';
 import Sidebar from './Sidebar.svelte';
 import Header from './Header.svelte';
 import CodePreview from './CodePreview.svelte';
+import MonacoEditor from './MonacoEditor.svelte';
 
-export { Logo, Icon, ThemeSwitch, Sidebar, Header, CodePreview };
+export { Logo, Icon, ThemeSwitch, Sidebar, Header, CodePreview, MonacoEditor };
