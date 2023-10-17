@@ -2,6 +2,7 @@ import { join } from 'path';
 import type { Config } from 'tailwindcss';
 import { skeleton } from '@skeletonlabs/tw-plugin';
 import forms from '@tailwindcss/forms';
+import { standardTheme } from './themes/standard';
 
 const config = {
   darkMode: 'class',
@@ -19,6 +20,7 @@ const config = {
     forms,
     skeleton({
       themes: {
+        custom: [standardTheme],
         preset: [
           { name: 'modern', enhancements: true },
           { name: 'seafoam', enhancements: true },

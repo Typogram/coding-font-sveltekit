@@ -21,7 +21,7 @@ import ColorSwatch from 'svelte-tabler/ColorSwatch.svelte';
 storePopup.set({ computePosition, autoUpdate, offset, shift, flip, arrow });
 const themeSelection: Writable<string> = localStorageStore(
   'themeSelection',
-  'skeleton'
+  'standard'
 );
 
 const popupFeatured: PopupSettings = {
@@ -36,6 +36,7 @@ onMount(() => {
 });
 
 const themes = [
+  { id: 'standard', displayName: 'Standard' },
   { id: 'modern', displayName: 'Modern' },
   { id: 'seafoam', displayName: 'Seafoam' },
   { id: 'wintry', displayName: 'Wintry' },
@@ -58,7 +59,7 @@ function handleChangeTheme(selectedTheme) {
   <ColorSwatch size="24" />
 </button>
 <div
-  class="card variant-glass-tertiary p-4 w-60 shadow-xl"
+  class="card bg-surface-200-700-token p-4 w-60 shadow-xl"
   data-popup="popupFeatured">
   <LightSwitch />
   <div class="flex flex-col mt-4 gap-2">
