@@ -1,7 +1,6 @@
 <script lang="ts">
 import { onMount } from 'svelte';
 import type { Writable } from 'svelte/store';
-import { Icon } from '$lib';
 import {
   LightSwitch,
   popup,
@@ -17,6 +16,7 @@ import {
   flip,
   arrow
 } from '@floating-ui/dom';
+import ColorSwatch from 'svelte-tabler/ColorSwatch.svelte';
 
 storePopup.set({ computePosition, autoUpdate, offset, shift, flip, arrow });
 const themeSelection: Writable<string> = localStorageStore(
@@ -55,7 +55,7 @@ function handleChangeTheme(selectedTheme) {
 </script>
 
 <button class="btn-icon variant-soft" use:popup="{popupFeatured}">
-  <Icon name="Color" />
+  <ColorSwatch size="24" />
 </button>
 <div
   class="card variant-glass-tertiary p-4 w-60 shadow-xl"

@@ -1,4 +1,4 @@
-import type { Writable } from 'svelte/store';
+import { writable, type Writable } from 'svelte/store';
 import { localStorageStore } from '@skeletonlabs/skeleton';
 
 export const selectedTheme: Writable<string> = localStorageStore(
@@ -13,7 +13,14 @@ export const fontFamily: Writable<string> = localStorageStore(
   'Fira Code'
 );
 
+export const fontFamilyRight: Writable<string> = localStorageStore(
+  'fontFamilyRight',
+  'Fira Code'
+);
+
 export const fontLigatures: Writable<boolean> = localStorageStore(
   'fontLigatures',
   true
 );
+
+export const searchTerm: Writable<string> = localStorageStore('searchTerm', '');

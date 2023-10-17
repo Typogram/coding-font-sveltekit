@@ -4,6 +4,11 @@
 @tailwind components;
 @tailwind utilities;
 
+:focus,
+:focus-visible {
+  @apply outline-0;
+}
+
 html,
 body {
   @apply h-full overflow-hidden;
