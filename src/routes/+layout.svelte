@@ -1,7 +1,7 @@
 <script>
 import '../app.css';
 import { AppShell } from '@skeletonlabs/skeleton';
-import { Header, Sidebar } from '$lib';
+import { Header, Sidebar, Controls } from '$lib';
 </script>
 
 <AppShell>
@@ -10,6 +10,9 @@ import { Header, Sidebar } from '$lib';
   </svelte:fragment>
   <svelte:fragment slot="sidebarLeft">
     <Sidebar />
+  </svelte:fragment>
+  <svelte:fragment slot="pageHeader">
+    <Controls />
   </svelte:fragment>
   <slot />
 </AppShell>

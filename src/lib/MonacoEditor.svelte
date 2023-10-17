@@ -7,7 +7,7 @@ import htmlWorker from 'monaco-editor/esm/vs/language/html/html.worker?worker';
 import tsWorker from 'monaco-editor/esm/vs/language/typescript/ts.worker?worker';
 import { monacoThemes } from './monacoThemes';
 
-export let fontFamily = "'Major Mono Display', monospace";
+export let fontFamily = 'Major Mono Display';
 export let fontSize = 20;
 export let themeName = 'monokai';
 export let code = `onMount(() => {
@@ -50,11 +50,11 @@ onMount(async () => {
     value: code,
     language: 'javascript',
     theme: 'vs-dark',
-    fontFamily: fontFamily,
+    fontFamily: `'${fontFamily}', monospace`,
     fontSize: fontSize,
     automaticLayout: true,
     minimap: {
-      enabled: false
+      enabled: true
     }
   });
   editor.updateOptions({ theme: themeName });
@@ -63,6 +63,14 @@ onMount(async () => {
 $: if (themeName && editor) {
   editor.updateOptions({ theme: themeName });
 }
+
+$: if (fontSize && editor) {
+  editor.updateOptions({ fontSize: fontSize });
+}
+
+$: if (fontFamily && editor) {
+  editor.updateOptions({ fontFamily: `'${fontFamily}', monospace` });
+}
 </script>
 
-<div class="w-full h-full" bind:this="{editorContainer}"></div>
+<div class="{$$props.class} w-full h-full" bind:this="{editorContainer}"></div>
