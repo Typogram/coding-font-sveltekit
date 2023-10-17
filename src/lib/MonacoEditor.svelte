@@ -52,7 +52,10 @@ onMount(async () => {
     theme: 'vs-dark',
     fontFamily: fontFamily,
     fontSize: fontSize,
-    automaticLayout: true
+    automaticLayout: true,
+    minimap: {
+      enabled: false
+    }
   });
   editor.updateOptions({ theme: themeName });
 });
