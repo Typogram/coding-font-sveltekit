@@ -9,17 +9,42 @@ import { monacoThemes } from './monacoThemes';
 
 export let fontFamily = 'Major Mono Display';
 export let fontSize = 20;
+export let fontLigatures = true;
 export let themeName = 'monokai';
-export let code = `onMount(() => {
-  monaco.editor.create(editorContainer, {
-    value: code,
-    language: 'javascript',
-    theme: 'vs-dark',
-    fontFamily: fontFamily,
-    fontSize: fontSize
-  });
-});
-`;
+export let code = `// This is a single-line comment example
+
+/*
+This is a multi-line comment example
+Demonstrating various JavaScript syntax and elements
+*/
+
+// Defining a function using arrow function syntax
+const isMultipleOf = (number, multiple) => {
+  if (number === 0) {
+    console.log('0 is a neutral element in multiplication.');
+    return;
+  }
+
+  for (let i = 1; i <= 10; i++) {
+    if ((number * i) % multiple === 0) {
+      console.log(
+        'The number ' + number * i + ' is a multiple of ' + multiple + '.'
+      );
+    } else {
+      console.log(
+        'The number ' + number * i + ' is not a multiple of ' + multiple + '.'
+      );
+    }
+  }
+};
+
+// Distinguishing between 0, o, O, l, 1, I in variable names and values
+let oO0 = 0; // Zero
+let l1I = 1; // One
+
+// Calling the function with different parameters
+isMultipleOf(oO0, l1I); // Output related to zero
+isMultipleOf(l1I, oO0); // Output related to one`;
 
 let editor;
 let editorContainer;
@@ -52,6 +77,7 @@ onMount(async () => {
     theme: 'vs-dark',
     fontFamily: `'${fontFamily}', monospace`,
     fontSize: fontSize,
+    fontLigatures: fontLigatures,
     automaticLayout: true,
     minimap: {
       enabled: true
@@ -60,16 +86,20 @@ onMount(async () => {
   editor.updateOptions({ theme: themeName });
 });
 
-$: if (themeName && editor) {
+$: if (editor) {
   editor.updateOptions({ theme: themeName });
 }
 
-$: if (fontSize && editor) {
+$: if (editor) {
   editor.updateOptions({ fontSize: fontSize });
 }
 
-$: if (fontFamily && editor) {
+$: if (editor) {
   editor.updateOptions({ fontFamily: `'${fontFamily}', monospace` });
+}
+
+$: if (editor) {
+  editor.updateOptions({ fontLigatures: fontLigatures });
 }
 </script>
 

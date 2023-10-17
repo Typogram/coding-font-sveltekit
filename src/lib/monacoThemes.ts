@@ -9,7 +9,6 @@ import ChromeDevToolsTheme from 'monaco-themes/themes/Chrome DevTools.json';
 import CloudsMidnightTheme from 'monaco-themes/themes/Clouds Midnight.json';
 import CloudsTheme from 'monaco-themes/themes/Clouds.json';
 import CobaltTheme from 'monaco-themes/themes/Cobalt.json';
-import Cobalt2Theme from 'monaco-themes/themes/Cobalt2.json';
 import DawnTheme from 'monaco-themes/themes/Dawn.json';
 import DominionDayTheme from 'monaco-themes/themes/Dominion Day.json';
 import DraculaTheme from 'monaco-themes/themes/Dracula.json';
@@ -27,10 +26,8 @@ import KrThemeTheme from 'monaco-themes/themes/krTheme.json';
 import KuroirThemeTheme from 'monaco-themes/themes/Kuroir Theme.json';
 import LAZYTheme from 'monaco-themes/themes/LAZY.json';
 import MagicWBAmigaTheme from 'monaco-themes/themes/MagicWB (Amiga).json';
-import MerbivoreSoftTheme from 'monaco-themes/themes/Merbivore Soft.json';
 import MerbivoreTheme from 'monaco-themes/themes/Merbivore.json';
 import MonoindustrialTheme from 'monaco-themes/themes/monoindustrial.json';
-import MonokaiBrightTheme from 'monaco-themes/themes/Monokai Bright.json';
 import MonokaiTheme from 'monaco-themes/themes/Monokai.json';
 import NightOwlTheme from 'monaco-themes/themes/Night Owl.json';
 import NordTheme from 'monaco-themes/themes/Nord.json';
@@ -48,7 +45,6 @@ import TomorrowNightEightiesTheme from 'monaco-themes/themes/Tomorrow-Night-Eigh
 import TomorrowNightTheme from 'monaco-themes/themes/Tomorrow-Night.json';
 import TomorrowTheme from 'monaco-themes/themes/Tomorrow.json';
 import TwilightTheme from 'monaco-themes/themes/Twilight.json';
-import UpstreamSunburstTheme from 'monaco-themes/themes/Upstream Sunburst.json';
 import VibrantInkTheme from 'monaco-themes/themes/Vibrant Ink.json';
 import XcodeDefaultTheme from 'monaco-themes/themes/Xcode_default.json';
 import ZenburnesqueTheme from 'monaco-themes/themes/Zenburnesque.json';
@@ -57,279 +53,361 @@ const monacoThemes = [
   {
     slug: 'active4d',
     displayName: 'Active4D',
-    themeData: Active4DTheme
+    themeData: Active4DTheme,
+    italic: false,
+    dark: false
   },
   {
     slug: 'all-hallows-eve',
     displayName: 'All Hallows Eve',
-    themeData: AllHallowsEveTheme
+    themeData: AllHallowsEveTheme,
+    italic: false,
+    dark: true
   },
   {
     slug: 'amy',
     displayName: 'Amy',
-    themeData: AmyTheme
+    themeData: AmyTheme,
+    italic: false,
+    dark: true
   },
   {
     slug: 'birds-of-paradise',
     displayName: 'Birds of Paradise',
-    themeData: BirdsOfParadiseTheme
+    themeData: BirdsOfParadiseTheme,
+    italic: true,
+    dark: true
   },
   {
     slug: 'blackboard',
     displayName: 'Blackboard',
-    themeData: BlackboardTheme
+    themeData: BlackboardTheme,
+    italic: false,
+    dark: true
   },
   {
     slug: 'brilliance-black',
     displayName: 'Brilliance Black',
-    themeData: BrillianceBlackTheme
+    themeData: BrillianceBlackTheme,
+    italic: false,
+    dark: true
   },
   {
     slug: 'brilliance-dull',
     displayName: 'Brilliance Dull',
-    themeData: BrillianceDullTheme
+    themeData: BrillianceDullTheme,
+    italic: false,
+    dark: true
   },
   {
     slug: 'chrome-devtools',
     displayName: 'Chrome DevTools',
-    themeData: ChromeDevToolsTheme
+    themeData: ChromeDevToolsTheme,
+    italic: false,
+    dark: false
   },
   {
     slug: 'clouds-midnight',
     displayName: 'Clouds Midnight',
-    themeData: CloudsMidnightTheme
+    themeData: CloudsMidnightTheme,
+    italic: false,
+    dark: true
   },
   {
     slug: 'clouds',
     displayName: 'Clouds',
-    themeData: CloudsTheme
+    themeData: CloudsTheme,
+    italic: false,
+    dark: false
   },
   {
     slug: 'cobalt',
     displayName: 'Cobalt',
-    themeData: CobaltTheme
-  },
-  {
-    slug: 'cobalt2',
-    displayName: 'Cobalt2',
-    themeData: Cobalt2Theme
+    themeData: CobaltTheme,
+    italic: true,
+    dark: true
   },
   {
     slug: 'dawn',
     displayName: 'Dawn',
-    themeData: DawnTheme
+    themeData: DawnTheme,
+    italic: true,
+    dark: false
   },
   {
     slug: 'dominion-day',
     displayName: 'Dominion Day',
-    themeData: DominionDayTheme
+    themeData: DominionDayTheme,
+    italic: true,
+    dark: true
   },
   {
     slug: 'dracula',
     displayName: 'Dracula',
-    themeData: DraculaTheme
+    themeData: DraculaTheme,
+    italic: false,
+    dark: true
   },
   {
     slug: 'dreamweaver',
     displayName: 'Dreamweaver',
-    themeData: DreamweaverTheme
+    themeData: DreamweaverTheme,
+    italic: false,
+    dark: false
   },
   {
     slug: 'eiffel',
     displayName: 'Eiffel',
-    themeData: EiffelTheme
+    themeData: EiffelTheme,
+    italic: false,
+    dark: false
   },
   {
     slug: 'espresso-libre',
     displayName: 'Espresso Libre',
-    themeData: EspressoLibreTheme
+    themeData: EspressoLibreTheme,
+    italic: true,
+    dark: true
   },
   {
     slug: 'github-dark',
     displayName: 'GitHub Dark',
-    themeData: GitHubDarkTheme
+    themeData: GitHubDarkTheme,
+    italic: false,
+    dark: true
   },
   {
     slug: 'github-light',
     displayName: 'GitHub Light',
-    themeData: GitHubLightTheme
+    themeData: GitHubLightTheme,
+    italic: false,
+    dark: false
   },
   {
     slug: 'github',
     displayName: 'GitHub',
-    themeData: GitHubTheme
+    themeData: GitHubTheme,
+    italic: true,
+    dark: false
   },
   {
     slug: 'idle',
-    displayName: 'IDLE',
-    themeData: IDLETheme
+    displayName: 'Idle',
+    themeData: IDLETheme,
+    italic: false,
+    dark: false
   },
   {
     slug: 'idle-fingers',
     displayName: 'Idle Fingers',
-    themeData: IdleFingersTheme
+    themeData: IdleFingersTheme,
+    italic: true,
+    dark: true
   },
   {
     slug: 'iplastic',
-    displayName: 'iPlastic',
-    themeData: IPlasticTheme
+    displayName: 'I Plastic',
+    themeData: IPlasticTheme,
+    italic: true,
+    dark: false
   },
   {
     slug: 'katzenmilch',
     displayName: 'Katzenmilch',
-    themeData: KatzenmilchTheme
-  },
-  {
-    slug: 'kr-theme',
-    displayName: 'krTheme',
-    themeData: KrThemeTheme
+    themeData: KatzenmilchTheme,
+    italic: false,
+    dark: false
   },
   {
     slug: 'kuroir-theme',
     displayName: 'Kuroir Theme',
-    themeData: KuroirThemeTheme
+    themeData: KuroirThemeTheme,
+    italic: false,
+    dark: false
   },
   {
     slug: 'lazy',
-    displayName: 'LAZY',
-    themeData: LAZYTheme
+    displayName: 'Lazy',
+    themeData: LAZYTheme,
+    italic: false,
+    dark: false
   },
   {
     slug: 'magicwb-amiga',
-    displayName: 'MagicWB (Amiga)',
-    themeData: MagicWBAmigaTheme
-  },
-  {
-    slug: 'merbivore-soft',
-    displayName: 'Merbivore Soft',
-    themeData: MerbivoreSoftTheme
+    displayName: 'MagicWB Amiga',
+    themeData: MagicWBAmigaTheme,
+    italic: true,
+    dark: true
   },
   {
     slug: 'merbivore',
     displayName: 'Merbivore',
-    themeData: MerbivoreTheme
+    themeData: MerbivoreTheme,
+    italic: true,
+    dark: true
   },
   {
     slug: 'monoindustrial',
     displayName: 'Mono Industrial',
-    themeData: MonoindustrialTheme
-  },
-  {
-    slug: 'monokai-bright',
-    displayName: 'Monokai Bright',
-    themeData: MonokaiBrightTheme
+    themeData: MonoindustrialTheme,
+    italic: false,
+    dark: true
   },
   {
     slug: 'monokai',
     displayName: 'Monokai',
-    themeData: MonokaiTheme
+    themeData: MonokaiTheme,
+    italic: false,
+    dark: true
   },
   {
     slug: 'night-owl',
     displayName: 'Night Owl',
-    themeData: NightOwlTheme
+    themeData: NightOwlTheme,
+    italic: false,
+    dark: true
   },
   {
     slug: 'nord',
     displayName: 'Nord',
-    themeData: NordTheme
+    themeData: NordTheme,
+    italic: false,
+    dark: true
   },
   {
     slug: 'oceanic-next',
     displayName: 'Oceanic Next',
-    themeData: OceanicNextTheme
+    themeData: OceanicNextTheme,
+    italic: false,
+    dark: true
   },
   {
     slug: 'pastels-on-dark',
     displayName: 'Pastels on Dark',
-    themeData: PastelsOnDarkTheme
+    themeData: PastelsOnDarkTheme,
+    italic: false,
+    dark: true
   },
   {
     slug: 'slush-and-poppies',
     displayName: 'Slush and Poppies',
-    themeData: SlushAndPoppiesTheme
+    themeData: SlushAndPoppiesTheme,
+    italic: false,
+    dark: false
   },
   {
     slug: 'solarized-dark',
-    displayName: 'Solarized-dark',
-    themeData: SolarizedDarkTheme
+    displayName: 'Solarized Dark',
+    themeData: SolarizedDarkTheme,
+    italic: false,
+    dark: true
   },
   {
     slug: 'solarized-light',
-    displayName: 'Solarized-light',
-    themeData: SolarizedLightTheme
+    displayName: 'Solarized Light',
+    themeData: SolarizedLightTheme,
+    italic: false,
+    dark: false
   },
   {
     slug: 'spacecadet',
-    displayName: 'SpaceCadet',
-    themeData: SpaceCadetTheme
+    displayName: 'Space Cadet',
+    themeData: SpaceCadetTheme,
+    italic: false,
+    dark: true
   },
   {
     slug: 'sunburst',
     displayName: 'Sunburst',
-    themeData: SunburstTheme
+    themeData: SunburstTheme,
+    italic: true,
+    dark: true
   },
   {
     slug: 'textmate-mac-classic',
-    displayName: 'Textmate (Mac Classic)',
-    themeData: TextmateMacClassicTheme
+    displayName: 'Textmate Mac Classic',
+    themeData: TextmateMacClassicTheme,
+    italic: true,
+    dark: false
+  },
+  {
+    slug: 'kr-theme',
+    displayName: 'KR Theme',
+    themeData: KrThemeTheme,
+    italic: true,
+    dark: true
   },
   {
     slug: 'tomorrow-night-blue',
-    displayName: 'Tomorrow-Night-Blue',
-    themeData: TomorrowNightBlueTheme
+    displayName: 'Tomorrow Night Blue',
+    themeData: TomorrowNightBlueTheme,
+    italic: false,
+    dark: true
   },
   {
     slug: 'tomorrow-night-bright',
-    displayName: 'Tomorrow-Night-Bright',
-    themeData: TomorrowNightBrightTheme
+    displayName: 'Tomorrow Night Bright',
+    themeData: TomorrowNightBrightTheme,
+    italic: false,
+    dark: true
   },
   {
     slug: 'tomorrow-night-eighties',
-    displayName: 'Tomorrow-Night-Eighties',
-    themeData: TomorrowNightEightiesTheme
+    displayName: 'Tomorrow Night Eighties',
+    themeData: TomorrowNightEightiesTheme,
+    italic: false,
+    dark: true
   },
   {
     slug: 'tomorrow-night',
-    displayName: 'Tomorrow-Night',
-    themeData: TomorrowNightTheme
+    displayName: 'Tomorrow Night',
+    themeData: TomorrowNightTheme,
+    italic: false,
+    dark: true
   },
   {
     slug: 'tomorrow',
     displayName: 'Tomorrow',
-    themeData: TomorrowTheme
+    themeData: TomorrowTheme,
+    italic: false,
+    dark: false
   },
   {
     slug: 'twilight',
     displayName: 'Twilight',
-    themeData: TwilightTheme
-  },
-  {
-    slug: 'upstream-sunburst',
-    displayName: 'Upstream Sunburst',
-    themeData: UpstreamSunburstTheme
+    themeData: TwilightTheme,
+    italic: true,
+    dark: true
   },
   {
     slug: 'vibrant-ink',
     displayName: 'Vibrant Ink',
-    themeData: VibrantInkTheme
+    themeData: VibrantInkTheme,
+    italic: false,
+    dark: true
   },
   {
     slug: 'xcode-default',
-    displayName: 'Xcode_default',
-    themeData: XcodeDefaultTheme
+    displayName: 'Xcode Default',
+    themeData: XcodeDefaultTheme,
+    italic: false,
+    dark: false
   },
   {
     slug: 'zenburnesque',
     displayName: 'Zenburnesque',
-    themeData: ZenburnesqueTheme
+    themeData: ZenburnesqueTheme,
+    italic: true,
+    dark: true
   }
 ];
 
 const monacoThemeNames = monacoThemes.map((theme) => {
   return {
     slug: theme.slug,
-    displayName: theme.displayName
+    displayName: theme.displayName,
+    italic: theme.italic,
+    dark: theme.dark
   };
 });
 

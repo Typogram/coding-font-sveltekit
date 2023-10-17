@@ -1,6 +1,6 @@
 <script lang="ts">
 import { monacoThemeNames } from '$lib';
-import { selectedTheme, fontSize, fontFamily } from '$lib/store';
+import { selectedTheme, fontSize, fontFamily, fontLigatures } from '$lib/store';
 
 const fontFamilies = [
   'Anonymous Pro',
@@ -23,6 +23,17 @@ const fontFamilies = [
   'Space Mono',
   'Ubuntu Mono'
 ];
+const sortedMonacoThemes = monacoThemeNames.sort((a, b) => {
+  if (a.italic && !b.italic) {
+    return -1;
+  }
+
+  if (!a.italic && b.italic) {
+    return 1;
+  }
+
+  return 0;
+});
 </script>
 
 <div
@@ -30,7 +41,7 @@ const fontFamilies = [
   <label class="flex flex-row items-baseline gap-2 whitespace-nowrap">
     <span>Editor Theme: </span>
     <select class="select" bind:value="{$selectedTheme}" size="1">
-      {#each monacoThemeNames as theme (theme.slug)}
+      {#each sortedMonacoThemes as theme (theme.slug)}
         <option value="{theme.slug}">{theme.displayName}</option>
       {/each}
     </select>
@@ -46,5 +57,9 @@ const fontFamilies = [
         <option value="{font}">{font}</option>
       {/each}
     </select>
+  </label>
+  <label class="flex items-center space-x-2">
+    <input class="checkbox" type="checkbox" bind:checked="{$fontLigatures}" />
+    <span>Font Ligatures</span>
   </label>
 </div>
