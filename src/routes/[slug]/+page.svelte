@@ -1,8 +1,10 @@
 <script lang="ts">
+import { goto } from '$app/navigation';
 import { AppShell } from '@skeletonlabs/skeleton';
 import {
   IconExternalLink,
   IconDownload,
+  IconBoxAlignRightFilled,
   Header,
   SearchBar,
   FontTable,
@@ -15,19 +17,25 @@ import {
   selectedTheme,
   fontSize,
   fontFamilyRight,
-  fontLigatures
+  fontLigatures,
+  searchTerm
 } from '$lib/store';
 
 export let data;
-const { fonts } = data;
+let fonts = data.fonts;
 
-$: font = data.font;
+$: currentFont = data.font;
 
-$: {
-  console.log(font);
-}
 function getFontByFamilyName(familyName: string) {
   return data.fonts.find((font) => font.family === familyName);
+}
+
+$: if ($searchTerm) {
+  fonts = data.fonts.filter((font) =>
+    font.family.toLowerCase().includes($searchTerm.toLowerCase())
+  );
+} else {
+  fonts = data.fonts;
 }
 </script>
 
@@ -39,31 +47,51 @@ function getFontByFamilyName(familyName: string) {
   <svelte:fragment slot="sidebarLeft">
     <Sidebar>
       <div class="flex flex-col gap-4">
-        <h2 class="h2">{font.family}</h2>
-        <p>{`${font?.variants.length} styles`}</p>
+        <ol class="breadcrumb">
+          <li class="crumb">
+            <a class="anchor" href="/">Home</a>
+          </li>
+          <li class="crumb-separator" aria-hidden>&rsaquo;</li>
+          <li>{currentFont?.family}</li>
+        </ol>
+        <h2 class="h2">{currentFont.family}</h2>
+        <p>{`${currentFont?.variants.length} styles`}</p>
         <div class="flex flex-wrap gap-2">
-          {#each font.variants as variant (variant)}
-            <a href="{font.files[variant]}" target="_blank" class="code"
+          {#each currentFont.variants as variant (variant)}
+            <a href="{currentFont.files[variant]}" target="_blank" class="code"
               >{variant}</a>
           {/each}
         </div>
         <div
-          style="font-family: '{font.family}'"
-          class="card flex flex-col items-center justify-center min-h-[10rem] bg-white dark:bg-surface-900 border-surface-400-500-token border-2">
+          style="font-family: '{currentFont.family}'"
+          class="card relative flex flex-col items-center justify-center min-h-[10rem] whitespace-nowrap overflow-hidden bg-white dark:bg-surface-900 border-surface-400-500-token border-token">
+          <div class="code absolute bottom-0 right-0">regular</div>
           <span>{`0oO|Ll1Iti ,.:; ()[]{} <> +-=/ * &!?`}</span>
           <span>{`0123456789 ""' .= != % @ ^~ && ||`}</span>
           <span>{`// ** */ << >> <= >= => -> .. ++ == !=`}</span>
           <span>Aa Bb Cc Dd Ee Ff Gg Hh Ii Jj Kk Ll Mm</span>
           <span>Nn Oo Pp Qq Rr Ss Tt Uu Vv Ww Xx Yy Zz</span>
         </div>
-        <table class="table text-left !whitespace-nowrap">
+        {#if currentFont?.variants.includes('italic')}
+          <div
+            style="font-family: '{currentFont.family}'; font-style: italic;"
+            class="card relative flex flex-col items-center justify-center min-h-[10rem] whitespace-nowrap overflow-hidden bg-white dark:bg-surface-900 border-surface-400-500-token border-token">
+            <div class="code absolute bottom-0 right-0">italic</div>
+            <span>{`0oO|Ll1Iti ,.:; ()[]{} <> +-=/ * &!?`}</span>
+            <span>{`0123456789 ""' .= != % @ ^~ && ||`}</span>
+            <span>{`// ** */ << >> <= >= => -> .. ++ == !=`}</span>
+            <span>Aa Bb Cc Dd Ee Ff Gg Hh Ii Jj Kk Ll Mm</span>
+            <span>Nn Oo Pp Qq Rr Ss Tt Uu Vv Ww Xx Yy Zz</span>
+          </div>
+        {/if}
+        <table class="table table-compact text-left !whitespace-nowrap">
           <tbody>
             <tr>
               <th>Dowload URL</th>
               <td>
-                <a href="{font?.downloadUrl}" class="btn">
+                <a href="{currentFont?.downloadUrl}" class="btn">
                   <span class="max-w-[18rem] truncate"
-                    >{font?.downloadUrl}</span>
+                    >{currentFont?.downloadUrl}</span>
                   <IconDownload size="16" />
                 </a>
               </td>
@@ -71,8 +99,9 @@ function getFontByFamilyName(familyName: string) {
             <tr>
               <th>Webiste URL</th>
               <td>
-                <a href="{font?.siteUrl}" class="btn">
-                  <span class="max-w-[18rem] truncate">{font?.siteUrl}</span>
+                <a href="{currentFont?.siteUrl}" class="btn">
+                  <span class="max-w-[18rem] truncate"
+                    >{currentFont?.siteUrl}</span>
                   <IconExternalLink size="16" />
                 </a>
               </td>
@@ -82,7 +111,47 @@ function getFontByFamilyName(familyName: string) {
       </div>
       <hr />
       <SearchBar />
-      <FontTable fonts="{fonts}" />
+      <table
+        class="table table-hover table-compact table-interactive !rounded-none">
+        <tbody>
+          {#each fonts as font (font)}
+            <tr
+              on:click="{() => {
+                goto(`/${encodeURIComponent(font.family.replace(/\s+/g, ''))}`);
+              }}"
+              class:!variant-ghost-primary="{currentFont.family ===
+                font.family}">
+              <td
+                style="font-family: '{font.family}'"
+                class="!whitespace-nowrap max-w-[9rem] truncate"
+                >{font.family}</td>
+              <td>
+                <button
+                  class="btn btn-sm variant-ringed-surface"
+                  class:!variant-ghost-primary="{font.family ===
+                    $fontFamilyRight}"
+                  on:click|stopPropagation="{() => {
+                    $fontFamilyRight = font.family;
+                  }}">
+                  <IconBoxAlignRightFilled size="16" />
+                  <span>Compare</span>
+                </button>
+              </td>
+              <td>
+                <div
+                  class="btn-group variant-ringed-surface [&>*+*]:border-surface-400-500-token">
+                  <a href="{font?.siteUrl}" target="_blank" class="!p-2 !pl-3">
+                    <IconExternalLink size="16" />
+                  </a>
+                  <a href="{font?.downloadUrl}" class="!p-2 !pr-3">
+                    <IconDownload size="16" />
+                  </a>
+                </div>
+              </td>
+            </tr>
+          {/each}
+        </tbody>
+      </table>
     </Sidebar>
   </svelte:fragment>
   <svelte:fragment slot="pageHeader">
@@ -90,11 +159,11 @@ function getFontByFamilyName(familyName: string) {
   </svelte:fragment>
   <div class="grid grid-cols-2 h-full bg-surface-50-900-token p-4 gap-4">
     <div class="flex flex-col gap-4" class:col-span-2="{!$fontFamilyRight}">
-      <FontHeader font="{font}" />
+      <FontHeader font="{currentFont}" />
       <MonacoEditor
         class="rounded-container-token overflow-hidden"
         fontSize="{$fontSize}"
-        fontFamily="{font?.family}"
+        fontFamily="{currentFont?.family}"
         fontLigatures="{$fontLigatures}"
         themeName="{$selectedTheme}" />
     </div>

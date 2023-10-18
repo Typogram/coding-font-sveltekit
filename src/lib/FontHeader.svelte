@@ -4,7 +4,9 @@ export let font: any;
 </script>
 
 <div class="flex flex-row justify-between items-center">
-  <h3 class="h3 whitespace-nowrap truncate">{font.family}</h3>
+  <a
+    href="/{encodeURIComponent(font.family.replace(/\s+/g, ''))}"
+    class="h3 whitespace-nowrap truncate underline">{font.family}</a>
   <div
     class="btn-group variant-ringed-surface [&>*+*]:border-surface-400-500-token">
     <a href="{font.siteUrl}" target="_blank">
@@ -15,7 +17,7 @@ export let font: any;
       <IconDownload size="24" />
       <span>Download {font.family}</span>
     </a>
-    <a href="/{encodeURIComponent(font.family)}">
+    <a href="/{encodeURIComponent(font.family.replace(/\s+/g, ''))}">
       <IconMaximize size="24" />
     </a>
   </div>

@@ -9,7 +9,7 @@ import { IconMenu, Logo, ThemeSwitch } from '$lib';
       <IconMenu size="24" />
     </button>
   </svelte:fragment>
-  <Logo class="w-auto h-[3rem]" />
+  <a href="/"><Logo class="w-auto h-[3rem]" /></a>
   <svelte:fragment slot="trail">
     <ThemeSwitch />
   </svelte:fragment>

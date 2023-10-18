@@ -27,29 +27,22 @@ let previewText: string;
         <tr
           on:click="{() => {
             $fontFamily = font.family;
-          }}">
+          }}"
+          class:!variant-ghost-primary="{$fontFamily === font.family}">
           <td
             style="font-family: '{font.family}'"
             class="!whitespace-nowrap max-w-[9rem] truncate"
             >{previewText ?? font.family}</td>
           <td>
-            <div
-              class="btn-group variant-ringed-surface [&>*+*]:border-surface-400-500-token">
-              <button
-                class="!p-2 !pl-3"
-                class:!variant-filled-primary="{font.family === $fontFamily}">
-                <IconBoxAlignLeftFilled size="16" />
-              </button>
-              <button
-                class="!p-2 !pr-3"
-                class:!variant-filled-primary="{font.family ===
-                  $fontFamilyRight}"
-                on:click|stopPropagation="{() => {
-                  $fontFamilyRight = font.family;
-                }}">
-                <IconBoxAlignRightFilled size="16" />
-              </button>
-            </div>
+            <button
+              class="btn btn-sm variant-ringed-surface"
+              class:!variant-ghost-primary="{font.family === $fontFamilyRight}"
+              on:click|stopPropagation="{() => {
+                $fontFamilyRight = font.family;
+              }}">
+              <IconBoxAlignRightFilled size="16" />
+              <span>Compare</span>
+            </button>
           </td>
           <td>
             <div
@@ -60,7 +53,9 @@ let previewText: string;
               <a href="{font?.downloadUrl}" class="!p-2">
                 <IconDownload size="16" />
               </a>
-              <a href="/{encodeURIComponent(font.family)}" class="!p-2 !pr-3">
+              <a
+                href="/{encodeURIComponent(font.family.replace(/\s+/g, ''))}"
+                class="!p-2 !pr-3">
                 <IconMaximize size="16" />
               </a>
             </div>
@@ -76,9 +71,3 @@ let previewText: string;
     </tfoot>
   </table>
 </div>
-
-<style>
-table tr td {
-  @apply align-middle;
-}
-</style>
