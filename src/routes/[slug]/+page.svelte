@@ -91,7 +91,7 @@ function getFontByFamilyName(familyName: string) {
             <span>{`Nn Oo Pp Qq Rr Ss Tt Uu Vv Ww Xx Yy Zz`}</span>
           </div>
         {/if}
-        <div class="table-container !rounded-none">
+        <div class="table-container !rounded-none !overflow-x-hidden">
           <table
             class="table table-compact text-left !whitespace-nowrap !rounded-none">
             <tbody>
