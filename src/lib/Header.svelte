@@ -19,8 +19,10 @@ import { menuOpen } from '$lib/store';
   </div>
 
   <TabGroup
+    flex="flex"
+    padding="px-2"
     border="border-none h3 relative"
-    active="after:absolute after:-translate-x-1/2 after:bottom-0 after:w-4 after:h-1 after:bg-[currentColor] after:rounded-full">
+    active="before:content-['<'] after:content-['>']">
     <TabAnchor href="/game" selected="{$page.url.pathname === '/game'}"
       >Game</TabAnchor>
     <TabAnchor href="/" selected="{$page.url.pathname === '/'}"
