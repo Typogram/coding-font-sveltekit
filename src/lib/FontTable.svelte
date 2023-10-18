@@ -1,10 +1,9 @@
 <script lang="ts">
-import { fontFamily, fontFamilyRight } from '$lib/store';
+import { fontFamily, fontFamilyRight, menuOpen } from '$lib/store';
 import {
   IconDownload,
   IconExternalLink,
   IconMaximize,
-  IconBoxAlignLeftFilled,
   IconBoxAlignRightFilled
 } from '$lib';
 
@@ -26,6 +25,7 @@ let previewText: string;
       {#each fonts as font (font)}
         <tr
           on:click="{() => {
+            $menuOpen = false;
             $fontFamily = font.family;
           }}"
           class:!variant-ghost-primary="{$fontFamily === font.family}">
@@ -38,6 +38,7 @@ let previewText: string;
               class="btn btn-sm variant-ringed-surface"
               class:!variant-ghost-primary="{font.family === $fontFamilyRight}"
               on:click|stopPropagation="{() => {
+                $menuOpen = false;
                 $fontFamilyRight = font.family;
               }}">
               <IconBoxAlignRightFilled size="16" />

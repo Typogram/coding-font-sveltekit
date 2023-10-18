@@ -7,7 +7,6 @@ import {
   IconBoxAlignRightFilled,
   Header,
   SearchBar,
-  FontTable,
   Sidebar,
   FontHeader,
   Controls,
@@ -120,6 +119,7 @@ $: if ($searchTerm) {
           {#each fonts as font (font)}
             <tr
               on:click="{() => {
+                $menuOpen = false;
                 goto(`/${encodeURIComponent(font.family.replace(/\s+/g, ''))}`);
               }}"
               class:!variant-ghost-primary="{currentFont.family ===
@@ -134,6 +134,7 @@ $: if ($searchTerm) {
                   class:!variant-ghost-primary="{font.family ===
                     $fontFamilyRight}"
                   on:click|stopPropagation="{() => {
+                    $menuOpen = false;
                     $fontFamilyRight = font.family;
                   }}">
                   <IconBoxAlignRightFilled size="16" />
