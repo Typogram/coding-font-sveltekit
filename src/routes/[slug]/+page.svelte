@@ -128,7 +128,7 @@ $: if ($searchTerm) {
                 style="font-family: '{font.family}'"
                 class="!whitespace-nowrap max-w-[9rem] truncate"
                 >{font.family}</td>
-              <td>
+              <td class="hidden md:table-cell">
                 <button
                   class="btn btn-sm variant-ringed-surface"
                   class:!variant-ghost-primary="{font.family ===
@@ -161,7 +161,7 @@ $: if ($searchTerm) {
     <Controls />
   </svelte:fragment>
   <div
-    class="grid grid-rows-2 grid-cols-1 md:grid-rows-1 md:grid-cols-2 h-full bg-surface-50-900-token p-4 gap-4">
+    class="grid grid-cols-1 md:grid-cols-2 h-full bg-surface-50-900-token p-4 gap-4">
     <div class="flex flex-col gap-4" class:col-span-2="{!$fontFamilyRight}">
       <FontHeader font="{currentFont}" />
       <MonacoEditor
@@ -172,7 +172,7 @@ $: if ($searchTerm) {
         themeName="{$selectedTheme}" />
     </div>
     {#if $fontFamilyRight}
-      <div class="flex flex-col gap-4 relative">
+      <div class="hidden md:flex flex-col gap-4 relative">
         <FontHeader font="{getFontByFamilyName($fontFamilyRight)}" />
         <MonacoEditor
           class="rounded-container-token overflow-hidden"

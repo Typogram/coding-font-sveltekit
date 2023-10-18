@@ -18,7 +18,7 @@ let previewText: string;
     <thead>
       <tr>
         <th>Font Family</th>
-        <th>Preview</th>
+        <th class="hidden md:table-cell">Preview</th>
         <th>Actions</th>
       </tr>
     </thead>
@@ -33,7 +33,7 @@ let previewText: string;
             style="font-family: '{font.family}'"
             class="!whitespace-nowrap max-w-[9rem] truncate"
             >{previewText ?? font.family}</td>
-          <td>
+          <td class="hidden md:table-cell">
             <button
               class="btn btn-sm variant-ringed-surface"
               class:!variant-ghost-primary="{font.family === $fontFamilyRight}"
