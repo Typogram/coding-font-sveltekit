@@ -3,6 +3,8 @@ import Logo from './Logo.svelte';
 import Icon from './Icon.svelte';
 import Controls from './Controls.svelte';
 import SearchBar from './SearchBar.svelte';
+import FontTable from './FontTable.svelte';
+import FontHeader from './FontHeader.svelte';
 import Sidebar from './Sidebar.svelte';
 import Header from './Header.svelte';
 import MonacoEditor from './MonacoEditor.svelte';
@@ -16,6 +18,8 @@ export {
   ThemeSwitch,
   Controls,
   SearchBar,
+  FontHeader,
+  FontTable,
   Sidebar,
   Header,
   /* Monaco Editor Related */
