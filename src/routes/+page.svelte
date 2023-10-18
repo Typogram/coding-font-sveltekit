@@ -35,7 +35,8 @@ $: if ($searchTerm) {
 </script>
 
 <AppShell
-  slotSidebarLeft="flex relative resize-x min-w-0 w-0 lg:w-[30rem] lg:min-w-[16rem] !overflow-visible">
+  slotSidebarLeft="flex relative resize-x min-w-0 w-0 lg:w-[30rem] lg:min-w-[16rem] !overflow-visible"
+  slotHeader="z-30">
   <svelte:fragment slot="header">
     <Header />
   </svelte:fragment>

@@ -17,17 +17,19 @@ import {
   fontSize,
   fontFamilyRight,
   fontLigatures,
-  searchTerm,
-  menuOpen
+  menuOpen,
+  searchTerm
 } from '$lib/store';
 
 export let data;
 let fonts = data.fonts;
+let sidebarComponent: HTMLDivElement;
 
 $: currentFont = data.font;
 
-function getFontByFamilyName(familyName: string) {
-  return data.fonts.find((font) => font.family === familyName);
+$: if (currentFont && sidebarComponent) {
+  $menuOpen = true;
+  sidebarComponent.scrollToTop();
 }
 
 $: if ($searchTerm) {
@@ -37,15 +39,20 @@ $: if ($searchTerm) {
 } else {
   fonts = data.fonts;
 }
+
+function getFontByFamilyName(familyName: string) {
+  return data.fonts.find((font) => font.family === familyName);
+}
 </script>
 
 <AppShell
-  slotSidebarLeft="flex relative resize-x min-w-0 w-0 lg:w-[30rem] lg:min-w-[16rem] !overflow-visible">
+  slotSidebarLeft="flex relative resize-x min-w-0 w-0 lg:w-[30rem] lg:min-w-[16rem] !overflow-visible"
+  slotHeader="z-30">
   <svelte:fragment slot="header">
     <Header />
   </svelte:fragment>
   <svelte:fragment slot="sidebarLeft">
-    <Sidebar>
+    <Sidebar bind:this="{sidebarComponent}">
       <div class="flex flex-col gap-4">
         <ol class="breadcrumb">
           <li class="crumb">
@@ -66,44 +73,45 @@ $: if ($searchTerm) {
           style="font-family: '{currentFont.family}'"
           class="card relative flex flex-col items-center justify-center min-h-[10rem] whitespace-nowrap overflow-hidden bg-white dark:bg-surface-900 border-surface-400-500-token border-token">
           <div class="code absolute bottom-0 right-0">regular</div>
-          <span>{`0oO|Ll1Iti ,.:; ()[]{} <> +-=/ * &!?`}</span>
-          <span>{`0123456789 ""' .= != % @ ^~ && ||`}</span>
-          <span>{`// ** */ << >> <= >= => -> .. ++ == !=`}</span>
-          <span>Aa Bb Cc Dd Ee Ff Gg Hh Ii Jj Kk Ll Mm</span>
-          <span>Nn Oo Pp Qq Rr Ss Tt Uu Vv Ww Xx Yy Zz</span>
+          <span>{`0oO | Ll1Iti ,.:; () [] {} <> * ??. !!`}</span>
+          <span>{`"" '' != == === if 0123456789 %@ && ||`}</span>
+          <span>{`// /* */ << >> <= >= => -> . ++ -- ^+-`}</span>
+          <span>{`Aa Bb Cc Dd Ee Ff Gg Hh Ii Jj Kk Ll Mm`}</span>
+          <span>{`Nn Oo Pp Qq Rr Ss Tt Uu Vv Ww Xx Yy Zz`}</span>
         </div>
         {#if currentFont?.variants.includes('italic')}
           <div
             style="font-family: '{currentFont.family}'; font-style: italic;"
             class="card relative flex flex-col items-center justify-center min-h-[10rem] whitespace-nowrap overflow-hidden bg-white dark:bg-surface-900 border-surface-400-500-token border-token">
             <div class="code absolute bottom-0 right-0">italic</div>
-            <span>{`0oO|Ll1Iti ,.:; ()[]{} <> +-=/ * &!?`}</span>
-            <span>{`0123456789 ""' .= != % @ ^~ && ||`}</span>
-            <span>{`// ** */ << >> <= >= => -> .. ++ == !=`}</span>
-            <span>Aa Bb Cc Dd Ee Ff Gg Hh Ii Jj Kk Ll Mm</span>
-            <span>Nn Oo Pp Qq Rr Ss Tt Uu Vv Ww Xx Yy Zz</span>
+            <span>{`0oO | Ll1Iti ,.:; () [] {} <> * ??. !!`}</span>
+            <span>{`"" '' != == === if 0123456789 %@ && ||`}</span>
+            <span>{`// /* */ << >> <= >= => -> . ++ -- ^+-`}</span>
+            <span>{`Aa Bb Cc Dd Ee Ff Gg Hh Ii Jj Kk Ll Mm`}</span>
+            <span>{`Nn Oo Pp Qq Rr Ss Tt Uu Vv Ww Xx Yy Zz`}</span>
           </div>
         {/if}
-        <div class="table-container">
-          <table class="table table-compact text-left !whitespace-nowrap">
+        <div class="table-container !rounded-none">
+          <table
+            class="table table-compact text-left !whitespace-nowrap !rounded-none">
             <tbody>
               <tr>
                 <th>Dowload URL</th>
                 <td>
                   <a href="{currentFont?.downloadUrl}" class="btn">
+                    <IconDownload size="16" />
                     <span class="max-w-[16rem] truncate"
                       >{currentFont?.downloadUrl}</span>
-                    <IconDownload size="16" />
                   </a>
                 </td>
               </tr>
               <tr>
                 <th>Webiste URL</th>
                 <td>
-                  <a href="{currentFont?.siteUrl}" class="btn">
+                  <a href="{currentFont?.siteUrl}" target="_blank" class="btn">
+                    <IconExternalLink size="16" />
                     <span class="max-w-[16rem] truncate"
                       >{currentFont?.siteUrl}</span>
-                    <IconExternalLink size="16" />
                   </a>
                 </td>
               </tr>
@@ -119,7 +127,6 @@ $: if ($searchTerm) {
           {#each fonts as font (font)}
             <tr
               on:click="{() => {
-                $menuOpen = false;
                 goto(`/${encodeURIComponent(font.family.replace(/\s+/g, ''))}`);
               }}"
               class:!variant-ghost-primary="{currentFont.family ===
@@ -134,7 +141,6 @@ $: if ($searchTerm) {
                   class:!variant-ghost-primary="{font.family ===
                     $fontFamilyRight}"
                   on:click|stopPropagation="{() => {
-                    $menuOpen = false;
                     $fontFamilyRight = font.family;
                   }}">
                   <IconBoxAlignRightFilled size="16" />

@@ -4,13 +4,11 @@ import AmyTheme from 'monaco-themes/themes/Amy.json';
 import BirdsOfParadiseTheme from 'monaco-themes/themes/Birds of Paradise.json';
 import BlackboardTheme from 'monaco-themes/themes/Blackboard.json';
 import BrillianceBlackTheme from 'monaco-themes/themes/Brilliance Black.json';
-import BrillianceDullTheme from 'monaco-themes/themes/Brilliance Dull.json';
 import ChromeDevToolsTheme from 'monaco-themes/themes/Chrome DevTools.json';
 import CloudsMidnightTheme from 'monaco-themes/themes/Clouds Midnight.json';
 import CloudsTheme from 'monaco-themes/themes/Clouds.json';
 import CobaltTheme from 'monaco-themes/themes/Cobalt.json';
 import DawnTheme from 'monaco-themes/themes/Dawn.json';
-import DominionDayTheme from 'monaco-themes/themes/Dominion Day.json';
 import DraculaTheme from 'monaco-themes/themes/Dracula.json';
 import DreamweaverTheme from 'monaco-themes/themes/Dreamweaver.json';
 import EiffelTheme from 'monaco-themes/themes/Eiffel.json';
@@ -18,7 +16,6 @@ import EspressoLibreTheme from 'monaco-themes/themes/Espresso Libre.json';
 import GitHubDarkTheme from 'monaco-themes/themes/GitHub Dark.json';
 import GitHubLightTheme from 'monaco-themes/themes/GitHub Light.json';
 import GitHubTheme from 'monaco-themes/themes/GitHub.json';
-import IDLETheme from 'monaco-themes/themes/IDLE.json';
 import IdleFingersTheme from 'monaco-themes/themes/idleFingers.json';
 import IPlasticTheme from 'monaco-themes/themes/iPlastic.json';
 import KatzenmilchTheme from 'monaco-themes/themes/Katzenmilch.json';
@@ -93,13 +90,6 @@ const monacoThemes = [
     dark: true
   },
   {
-    slug: 'brilliance-dull',
-    displayName: 'Brilliance Dull',
-    themeData: BrillianceDullTheme,
-    italic: false,
-    dark: true
-  },
-  {
     slug: 'chrome-devtools',
     displayName: 'Chrome DevTools',
     themeData: ChromeDevToolsTheme,
@@ -133,13 +123,6 @@ const monacoThemes = [
     themeData: DawnTheme,
     italic: true,
     dark: false
-  },
-  {
-    slug: 'dominion-day',
-    displayName: 'Dominion Day',
-    themeData: DominionDayTheme,
-    italic: true,
-    dark: true
   },
   {
     slug: 'dracula',
@@ -188,13 +171,6 @@ const monacoThemes = [
     displayName: 'GitHub',
     themeData: GitHubTheme,
     italic: true,
-    dark: false
-  },
-  {
-    slug: 'idle',
-    displayName: 'Idle',
-    themeData: IDLETheme,
-    italic: false,
     dark: false
   },
   {

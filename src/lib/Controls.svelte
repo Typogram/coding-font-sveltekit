@@ -28,9 +28,9 @@ const sortedMonacoThemes = monacoThemeNames.sort((a, b) => {
   </label>
   <label class="flex flex-row items-baseline gap-2 whitespace-nowrap">
     <span>Font Size: </span>
-    <input class="input w-20" bind:value="{$fontSize}" type="number" />
+    <input class="input w-16 min-w-12" bind:value="{$fontSize}" type="number" />
     <RangeSlider
-      class="hidden md:block w-60"
+      class="w-40 lg:w-60"
       name="font-size-slider"
       bind:value="{$fontSize}"
       max="{36}"

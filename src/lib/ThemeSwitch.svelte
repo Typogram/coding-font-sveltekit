@@ -59,7 +59,7 @@ function handleChangeTheme(selectedTheme) {
   <IconColorSwatch size="24" />
 </button>
 <div
-  class="card bg-surface-200-700-token p-4 w-60 shadow-xl"
+  class="card z-30 bg-surface-200-700-token p-4 w-60 shadow-xl"
   data-popup="popupFeatured">
   <LightSwitch />
   <div class="flex flex-col mt-4 gap-2">

@@ -38,7 +38,6 @@ let previewText: string;
               class="btn btn-sm variant-ringed-surface"
               class:!variant-ghost-primary="{font.family === $fontFamilyRight}"
               on:click|stopPropagation="{() => {
-                $menuOpen = false;
                 $fontFamilyRight = font.family;
               }}">
               <IconBoxAlignRightFilled size="16" />
