@@ -11,11 +11,11 @@ export let font: any;
     class="btn-group variant-ringed-surface [&>*+*]:border-surface-400-500-token">
     <a href="{font.siteUrl}" target="_blank">
       <IconExternalLink size="24" />
-      <span>Visit {font.family}</span>
+      <span class="hidden 2xl:block">Visit {font.family}</span>
     </a>
     <a href="{font.downloadUrl}">
       <IconDownload size="24" />
-      <span>Download {font.family}</span>
+      <span class="hidden 2xl:block">Download {font.family}</span>
     </a>
     <a href="/{encodeURIComponent(font.family.replace(/\s+/g, ''))}">
       <IconMaximize size="24" />

@@ -35,7 +35,7 @@ $: if ($searchTerm) {
 </script>
 
 <AppShell
-  slotSidebarLeft="resize-x min-w-0 lg:w-[30rem] lg:min-w-[16rem] hidden lg:flex">
+  slotSidebarLeft="flex relative resize-x min-w-0 w-0 lg:w-[30rem] lg:min-w-[16rem] !overflow-visible">
   <svelte:fragment slot="header">
     <Header />
   </svelte:fragment>
@@ -48,7 +48,8 @@ $: if ($searchTerm) {
   <svelte:fragment slot="pageHeader">
     <Controls />
   </svelte:fragment>
-  <div class="grid grid-cols-2 h-full bg-surface-50-900-token p-4 gap-4">
+  <div
+    class="grid grid-rows-2 grid-cols-1 md:grid-rows-1 md:grid-cols-2 h-full bg-surface-50-900-token p-4 gap-4">
     <div class="flex flex-col gap-4" class:col-span-2="{!$fontFamilyRight}">
       <FontHeader font="{getFontByFamilyName($fontFamily)}" />
       <MonacoEditor

@@ -18,7 +18,8 @@ import {
   fontSize,
   fontFamilyRight,
   fontLigatures,
-  searchTerm
+  searchTerm,
+  menuOpen
 } from '$lib/store';
 
 export let data;
@@ -40,7 +41,7 @@ $: if ($searchTerm) {
 </script>
 
 <AppShell
-  slotSidebarLeft="resize-x min-w-0 lg:w-[30rem] lg:min-w-[16rem] hidden lg:flex">
+  slotSidebarLeft="flex relative resize-x min-w-0 w-0 lg:w-[30rem] lg:min-w-[16rem] !overflow-visible">
   <svelte:fragment slot="header">
     <Header />
   </svelte:fragment>
@@ -84,30 +85,32 @@ $: if ($searchTerm) {
             <span>Nn Oo Pp Qq Rr Ss Tt Uu Vv Ww Xx Yy Zz</span>
           </div>
         {/if}
-        <table class="table table-compact text-left !whitespace-nowrap">
-          <tbody>
-            <tr>
-              <th>Dowload URL</th>
-              <td>
-                <a href="{currentFont?.downloadUrl}" class="btn">
-                  <span class="max-w-[18rem] truncate"
-                    >{currentFont?.downloadUrl}</span>
-                  <IconDownload size="16" />
-                </a>
-              </td>
-            </tr>
-            <tr>
-              <th>Webiste URL</th>
-              <td>
-                <a href="{currentFont?.siteUrl}" class="btn">
-                  <span class="max-w-[18rem] truncate"
-                    >{currentFont?.siteUrl}</span>
-                  <IconExternalLink size="16" />
-                </a>
-              </td>
-            </tr>
-          </tbody>
-        </table>
+        <div class="table-container">
+          <table class="table table-compact text-left !whitespace-nowrap">
+            <tbody>
+              <tr>
+                <th>Dowload URL</th>
+                <td>
+                  <a href="{currentFont?.downloadUrl}" class="btn">
+                    <span class="max-w-[16rem] truncate"
+                      >{currentFont?.downloadUrl}</span>
+                    <IconDownload size="16" />
+                  </a>
+                </td>
+              </tr>
+              <tr>
+                <th>Webiste URL</th>
+                <td>
+                  <a href="{currentFont?.siteUrl}" class="btn">
+                    <span class="max-w-[16rem] truncate"
+                      >{currentFont?.siteUrl}</span>
+                    <IconExternalLink size="16" />
+                  </a>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
       </div>
       <hr />
       <SearchBar />
@@ -157,7 +160,8 @@ $: if ($searchTerm) {
   <svelte:fragment slot="pageHeader">
     <Controls />
   </svelte:fragment>
-  <div class="grid grid-cols-2 h-full bg-surface-50-900-token p-4 gap-4">
+  <div
+    class="grid grid-rows-2 grid-cols-1 md:grid-rows-1 md:grid-cols-2 h-full bg-surface-50-900-token p-4 gap-4">
     <div class="flex flex-col gap-4" class:col-span-2="{!$fontFamilyRight}">
       <FontHeader font="{currentFont}" />
       <MonacoEditor

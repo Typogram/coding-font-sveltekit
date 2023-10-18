@@ -17,10 +17,10 @@ const sortedMonacoThemes = monacoThemeNames.sort((a, b) => {
 </script>
 
 <div
-  class="bg-surface-100-800-token flex flex-row px-4 py-2 gap-4 border-b border-surface-400 dark:border-surface-500">
+  class="overflow-x-auto whitespace-nowrap bg-surface-100-800-token flex flex-row px-4 py-2 gap-4 border-b border-surface-400 dark:border-surface-500">
   <label class="flex flex-row items-baseline gap-2 whitespace-nowrap">
     <span>Theme: </span>
-    <select class="select" bind:value="{$selectedTheme}" size="1">
+    <select class="select min-w-[6rem]" bind:value="{$selectedTheme}" size="1">
       {#each sortedMonacoThemes as theme (theme.slug)}
         <option value="{theme.slug}">{theme.displayName}</option>
       {/each}
@@ -30,7 +30,7 @@ const sortedMonacoThemes = monacoThemeNames.sort((a, b) => {
     <span>Font Size: </span>
     <input class="input w-20" bind:value="{$fontSize}" type="number" />
     <RangeSlider
-      class="w-60"
+      class="hidden md:block w-60"
       name="font-size-slider"
       bind:value="{$fontSize}"
       max="{36}"

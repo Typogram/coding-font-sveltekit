@@ -32,6 +32,10 @@ table tr td {
   @apply !align-middle;
 }
 
+.hide {
+  @apply hidden lg:flex;
+}
+
 
 /* seafoam theme */
 @font-face {
