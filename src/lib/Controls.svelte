@@ -1,5 +1,6 @@
 <script lang="ts">
 import { monacoThemeNames } from '$lib';
+import { RangeSlider } from '@skeletonlabs/skeleton';
 import { selectedTheme, fontSize, fontLigatures } from '$lib/store';
 
 const sortedMonacoThemes = monacoThemeNames.sort((a, b) => {
@@ -18,7 +19,7 @@ const sortedMonacoThemes = monacoThemeNames.sort((a, b) => {
 <div
   class="bg-surface-100-800-token flex flex-row px-4 py-2 gap-4 border-b border-surface-400 dark:border-surface-500">
   <label class="flex flex-row items-baseline gap-2 whitespace-nowrap">
-    <span>Editor Theme: </span>
+    <span>Theme: </span>
     <select class="select" bind:value="{$selectedTheme}" size="1">
       {#each sortedMonacoThemes as theme (theme.slug)}
         <option value="{theme.slug}">{theme.displayName}</option>
@@ -27,7 +28,15 @@ const sortedMonacoThemes = monacoThemeNames.sort((a, b) => {
   </label>
   <label class="flex flex-row items-baseline gap-2 whitespace-nowrap">
     <span>Font Size: </span>
-    <input class="input" bind:value="{$fontSize}" type="number" />
+    <input class="input w-20" bind:value="{$fontSize}" type="number" />
+    <RangeSlider
+      class="w-60"
+      name="font-size-slider"
+      bind:value="{$fontSize}"
+      max="{36}"
+      min="{8}"
+      step="{1}"
+      ticked />
   </label>
   <label class="flex items-center space-x-2">
     <input class="checkbox" type="checkbox" bind:checked="{$fontLigatures}" />

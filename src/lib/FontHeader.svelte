@@ -6,7 +6,7 @@ export let font: any;
 <div class="flex flex-row justify-between items-center">
   <a
     href="/{encodeURIComponent(font.family.replace(/\s+/g, ''))}"
-    class="h3 whitespace-nowrap truncate underline">{font.family}</a>
+    class="h3 whitespace-nowrap truncate hover:underline">{font.family}</a>
   <div
     class="btn-group variant-ringed-surface [&>*+*]:border-surface-400-500-token">
     <a href="{font.siteUrl}" target="_blank">
