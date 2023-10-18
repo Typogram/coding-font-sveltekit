@@ -1,5 +1,5 @@
 <script lang="ts">
-import { Download, ExternalLink, Maximize } from 'svelte-tabler';
+import { IconDownload, IconExternalLink, IconMaximize } from '$lib';
 export let font: any;
 </script>
 
@@ -8,15 +8,15 @@ export let font: any;
   <div
     class="btn-group variant-ringed-surface [&>*+*]:border-surface-400-500-token">
     <a href="{font.siteUrl}" target="_blank">
-      <ExternalLink size="24" />
+      <IconExternalLink size="24" />
       <span>Visit {font.family}</span>
     </a>
     <a href="{font.downloadUrl}">
-      <Download size="24" />
+      <IconDownload size="24" />
       <span>Download {font.family}</span>
     </a>
     <a href="/{encodeURIComponent(font.family)}">
-      <Maximize size="24" />
+      <IconMaximize size="24" />
     </a>
   </div>
 </div>

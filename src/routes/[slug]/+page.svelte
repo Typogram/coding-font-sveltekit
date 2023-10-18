@@ -1,6 +1,8 @@
 <script lang="ts">
 import { AppShell } from '@skeletonlabs/skeleton';
 import {
+  IconExternalLink,
+  IconDownload,
   Header,
   SearchBar,
   FontTable,
@@ -15,13 +17,6 @@ import {
   fontFamilyRight,
   fontLigatures
 } from '$lib/store';
-import {
-  Download,
-  ExternalLink,
-  Maximize,
-  BoxAlignLeftFilled,
-  BoxAlignRightFilled
-} from 'svelte-tabler';
 
 export let data;
 const { fonts } = data;
@@ -69,7 +64,7 @@ function getFontByFamilyName(familyName: string) {
                 <a href="{font?.downloadUrl}" class="btn">
                   <span class="max-w-[18rem] truncate"
                     >{font?.downloadUrl}</span>
-                  <Download size="16" />
+                  <IconDownload size="16" />
                 </a>
               </td>
             </tr>
@@ -78,7 +73,7 @@ function getFontByFamilyName(familyName: string) {
               <td>
                 <a href="{font?.siteUrl}" class="btn">
                   <span class="max-w-[18rem] truncate">{font?.siteUrl}</span>
-                  <ExternalLink size="16" />
+                  <IconExternalLink size="16" />
                 </a>
               </td>
             </tr>

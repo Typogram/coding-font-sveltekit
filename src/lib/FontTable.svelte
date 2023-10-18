@@ -1,12 +1,12 @@
 <script lang="ts">
 import { fontFamily, fontFamilyRight } from '$lib/store';
 import {
-  Download,
-  ExternalLink,
-  Maximize,
-  BoxAlignLeftFilled,
-  BoxAlignRightFilled
-} from 'svelte-tabler';
+  IconDownload,
+  IconExternalLink,
+  IconMaximize,
+  IconBoxAlignLeftFilled,
+  IconBoxAlignRightFilled
+} from '$lib';
 
 export let fonts;
 
@@ -38,7 +38,7 @@ let previewText: string;
               <button
                 class="!p-2 !pl-3"
                 class:!variant-filled-primary="{font.family === $fontFamily}">
-                <BoxAlignLeftFilled size="16" />
+                <IconBoxAlignLeftFilled size="16" />
               </button>
               <button
                 class="!p-2 !pr-3"
@@ -47,7 +47,7 @@ let previewText: string;
                 on:click|stopPropagation="{() => {
                   $fontFamilyRight = font.family;
                 }}">
-                <BoxAlignRightFilled size="16" />
+                <IconBoxAlignRightFilled size="16" />
               </button>
             </div>
           </td>
@@ -55,13 +55,13 @@ let previewText: string;
             <div
               class="btn-group variant-ringed-surface [&>*+*]:border-surface-400-500-token">
               <a href="{font?.siteUrl}" target="_blank" class="!p-2 !pl-3">
-                <ExternalLink size="16" />
+                <IconExternalLink size="16" />
               </a>
               <a href="{font?.downloadUrl}" class="!p-2">
-                <Download size="16" />
+                <IconDownload size="16" />
               </a>
               <a href="/{encodeURIComponent(font.family)}" class="!p-2 !pr-3">
-                <Maximize size="16" />
+                <IconMaximize size="16" />
               </a>
             </div>
           </td>

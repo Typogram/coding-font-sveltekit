@@ -16,7 +16,7 @@ import {
   flip,
   arrow
 } from '@floating-ui/dom';
-import ColorSwatch from 'svelte-tabler/ColorSwatch.svelte';
+import { IconColorSwatch } from '$lib';
 
 storePopup.set({ computePosition, autoUpdate, offset, shift, flip, arrow });
 const themeSelection: Writable<string> = localStorageStore(
@@ -56,7 +56,7 @@ function handleChangeTheme(selectedTheme) {
 </script>
 
 <button class="btn-icon variant-soft" use:popup="{popupFeatured}">
-  <ColorSwatch size="24" />
+  <IconColorSwatch size="24" />
 </button>
 <div
   class="card bg-surface-200-700-token p-4 w-60 shadow-xl"

@@ -1,3 +1,11 @@
+import IconMenu from 'svelte-tabler/Menu2.svelte';
+import IconColorSwatch from 'svelte-tabler/ColorSwatch.svelte';
+import IconDownload from 'svelte-tabler/Download.svelte';
+import IconExternalLink from 'svelte-tabler/ExternalLink.svelte';
+import IconMaximize from 'svelte-tabler/Maximize.svelte';
+import IconBoxAlignLeftFilled from 'svelte-tabler/BoxAlignLeftFilled.svelte';
+import IconBoxAlignRightFilled from 'svelte-tabler/BoxAlignRightFilled.svelte';
+
 import ThemeSwitch from './ThemeSwitch.svelte';
 import Logo from './Logo.svelte';
 import Icon from './Icon.svelte';
@@ -12,6 +20,14 @@ import { monacoThemeNames, monacoThemes } from './monacoThemes';
 import codingFonts from './codingFonts';
 
 export {
+  /* Icon Components */
+  IconMenu,
+  IconColorSwatch,
+  IconDownload,
+  IconExternalLink,
+  IconMaximize,
+  IconBoxAlignLeftFilled,
+  IconBoxAlignRightFilled,
   /* Components */
   Logo,
   Icon,
