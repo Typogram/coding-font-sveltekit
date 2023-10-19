@@ -1,5 +1,5 @@
 <script lang="ts">
-import { fontFamily, fontFamilyRight, menuOpen } from '$lib/store';
+import { fontFamily, fontFamilyRight, menuOpen, showName } from '$lib/store';
 import {
   IconDownload,
   IconExternalLink,
@@ -8,8 +8,6 @@ import {
 } from '$lib';
 
 export let fonts;
-
-let previewText: string;
 </script>
 
 <div class="table-container whitespace-nowrap">
@@ -32,7 +30,7 @@ let previewText: string;
           <td
             style="font-family: '{font.family}'"
             class="!whitespace-nowrap max-w-[9rem] truncate"
-            >{previewText ?? font.family}</td>
+            >{$showName ? font.family : 'ABC abc 123'}</td>
           <td class="hidden md:table-cell">
             <button
               class="btn btn-sm variant-ringed-surface"

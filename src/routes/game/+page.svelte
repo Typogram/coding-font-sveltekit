@@ -111,10 +111,8 @@ function scrollToBracket() {
     class="grid grid-cols-1 grid-rows-2 md:grid-cols-2 md:grid-rows-1 h-full bg-surface-50-900-token p-4 gap-4">
     {#if currentBracket?.players?.length}
       <div class="flex flex-col gap-4 relative">
-        {#if $showName}
-          <FontHeader
-            font="{getFontByFamilyName(currentBracket.players[0].family)}" />
-        {/if}
+        <FontHeader
+          font="{getFontByFamilyName(currentBracket.players[0].family)}" />
         <MonacoEditor
           class="rounded-container-token overflow-hidden"
           fontSize="{$fontSize}"
@@ -126,10 +124,8 @@ function scrollToBracket() {
           on:click="{chooseWinner(currentBracket.players[0])}">Choose</button>
       </div>
       <div class="flex flex-col gap-4 relative">
-        {#if $showName}
-          <FontHeader
-            font="{getFontByFamilyName(currentBracket.players[1].family)}" />
-        {/if}
+        <FontHeader
+          font="{getFontByFamilyName(currentBracket.players[1].family)}" />
         <MonacoEditor
           class="rounded-container-token overflow-hidden"
           fontSize="{$fontSize}"
