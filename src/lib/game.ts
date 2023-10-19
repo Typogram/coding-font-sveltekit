@@ -1,10 +1,25 @@
 import confetti from 'canvas-confetti';
 
-export function createConfetti() {
+export function createConfetti(size = 'big', position = { x: 0.5, y: 0.5 }) {
+  const options = {
+    particleCount: 400,
+    spread: 200,
+    origin: {
+      x: position.x,
+      y: position.y
+    }
+  };
+
+  if (size === 'small') {
+    options.particleCount = 30;
+    options.spread = 200;
+    options.startVelocity = 20;
+  }
+
   confetti.create(document.getElementById('canvas'), {
     resize: true,
     useWorker: true
-  })({ particleCount: 200, spread: 200 });
+  })(options);
 }
 
 export function createGame(initialPlayers) {

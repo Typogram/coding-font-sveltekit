@@ -188,7 +188,7 @@ function getFontByFamilyName(familyName: string) {
           fontLigatures="{$fontLigatures}"
           themeName="{$selectedTheme}" />
         <button
-          class="btn variant-filled-surface absolute bottom-4 self-center"
+          class="btn variant-filled-surface absolute bottom-10 self-center"
           on:click="{() => {
             $fontFamilyRight = '';
           }}">Clear Comparison</button>

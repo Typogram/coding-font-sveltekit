@@ -35,11 +35,16 @@ function getFontByFamilyName(familyName: string) {
   return fonts.find((font) => font.family === familyName);
 }
 
-async function chooseWinner(player) {
+async function chooseWinner(player, event) {
   currentBracket = game.setWinner(player);
   game = game;
   if (currentBracket?.winner) {
     createConfetti();
+  } else {
+    createConfetti('small', {
+      x: event.clientX / window.innerWidth,
+      y: event.clientY / window.innerHeight
+    });
   }
   await tick();
   scrollToBracket();
@@ -124,7 +129,8 @@ function scrollToBracket() {
           themeName="{$selectedTheme}" />
         <button
           class="btn variant-filled-primary absolute bottom-10 self-center shadow-xl"
-          on:click="{chooseWinner(currentBracket.players[0])}">Choose</button>
+          on:click="{(e) => chooseWinner(currentBracket.players[0], e)}"
+          >Choose</button>
       </div>
       <div class="flex flex-col gap-4 relative">
         <FontHeader
@@ -137,7 +143,8 @@ function scrollToBracket() {
           themeName="{$selectedTheme}" />
         <button
           class="btn variant-filled-primary absolute bottom-10 self-center shadow-xl"
-          on:click="{chooseWinner(currentBracket.players[1])}">Choose</button>
+          on:click="{(e) => chooseWinner(currentBracket.players[1], e)}"
+          >Choose</button>
       </div>
     {:else if currentBracket?.winner}
       <div
@@ -159,8 +166,7 @@ function scrollToBracket() {
             style="font-family: '{currentBracket?.winner.family}'">
             {currentBracket?.winner.family}
           </div>
-          <div
-            class="self-center btn-group variant-ringed-surface [&>*+*]:border-surface-400-500-token">
+          <div class="self-center btn-group variant-soft-surface">
             <a href="{currentBracket?.winner.siteUrl}" target="_blank">
               <IconExternalLink size="24" />
               <span class="hidden 2xl:block"

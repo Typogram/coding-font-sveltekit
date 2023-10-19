@@ -69,9 +69,3 @@ table tr td {
   src: url('/fonts/AbrilFatface.ttf');
   font-display: swap;
 }
-
-
-.font-bracket.active:before {
-  content: '';
-  @apply absolute z-0 -top-1 -left-1 -right-1 -bottom-1 border border-dashed border-primary-400-500-token variant-soft-primary;
-}
