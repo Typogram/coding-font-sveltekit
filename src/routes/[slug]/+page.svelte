@@ -56,7 +56,7 @@ function getFontByFamilyName(familyName: string) {
       <div class="flex flex-col gap-4">
         <ol class="breadcrumb">
           <li class="crumb">
-            <a class="anchor" href="/">Home</a>
+            <a class="anchor" href="/browse">Browse</a>
           </li>
           <li class="crumb-separator" aria-hidden>&rsaquo;</li>
           <li>{currentFont?.family}</li>
