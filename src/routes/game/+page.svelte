@@ -17,8 +17,7 @@ import { showName, selectedTheme, fontSize, fontLigatures } from '$lib/store';
 export let data;
 let { fonts } = data;
 let game;
-let bracket;
-let bracketMap;
+let currentBracket;
 
 onMount(() => {
   startGame();
@@ -26,7 +25,7 @@ onMount(() => {
 
 function startGame() {
   game = createGame(fonts);
-  bracket = game.startGame();
+  currentBracket = game.startGame();
 }
 
 function getFontByFamilyName(familyName: string) {
@@ -34,20 +33,25 @@ function getFontByFamilyName(familyName: string) {
 }
 
 async function chooseWinner(player) {
-  bracket = game.setWinner(player);
+  currentBracket = game.setWinner(player);
   game = game;
-  if (bracket?.winner) {
+  if (currentBracket?.winner) {
     createConfetti();
   }
   await tick();
-  scrollToRight(bracketMap);
+  scrollToBracket();
 }
 
-function scrollToRight(element) {
-  element.scrollTo({
-    left: element.scrollWidth - element.clientWidth,
-    behavior: 'smooth'
-  });
+function scrollToBracket() {
+  const winnerElement = document.querySelector('.winner-candidate');
+  if (winnerElement) {
+    winnerElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  }
+
+  const activeBracket = document.querySelector('.font-bracket.active');
+  if (activeBracket) {
+    activeBracket.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  }
 }
 </script>
 
@@ -62,7 +66,7 @@ function scrollToRight(element) {
       <button class="btn variant-filled-primary" on:click="{startGame}"
         >Restart Game</button>
       {#if game?.rounds.length}
-        <div class="table-container rounded-none" bind:this="{bracketMap}">
+        <div class="table-container rounded-none p-2">
           <div class="font-brackets">
             {#each game.rounds as round, index (round)}
               {#if game.finalRound === index}
@@ -72,7 +76,9 @@ function scrollToRight(element) {
               {:else}
                 <div class="{`round-${index + 1}`}">
                   {#each round as bracket (bracket)}
-                    <div class="font-bracket">
+                    <div
+                      class="font-bracket"
+                      class:active="{bracket === currentBracket}">
                       {#each bracket?.players as font (font)}
                         <PlayerBadge
                           class="{bracket?.winner?.family == font.family
@@ -103,36 +109,38 @@ function scrollToRight(element) {
   </svelte:fragment>
   <div
     class="grid grid-cols-1 grid-rows-2 md:grid-cols-2 md:grid-rows-1 h-full bg-surface-50-900-token p-4 gap-4">
-    {#if bracket?.players?.length}
+    {#if currentBracket?.players?.length}
       <div class="flex flex-col gap-4 relative">
         {#if $showName}
-          <FontHeader font="{getFontByFamilyName(bracket.players[0].family)}" />
+          <FontHeader
+            font="{getFontByFamilyName(currentBracket.players[0].family)}" />
         {/if}
         <MonacoEditor
           class="rounded-container-token overflow-hidden"
           fontSize="{$fontSize}"
-          fontFamily="{bracket.players[0].family}"
+          fontFamily="{currentBracket.players[0].family}"
           fontLigatures="{$fontLigatures}"
           themeName="{$selectedTheme}" />
         <button
           class="btn variant-filled-primary absolute bottom-10 self-center shadow-xl"
-          on:click="{chooseWinner(bracket.players[0])}">Choose</button>
+          on:click="{chooseWinner(currentBracket.players[0])}">Choose</button>
       </div>
       <div class="flex flex-col gap-4 relative">
         {#if $showName}
-          <FontHeader font="{getFontByFamilyName(bracket.players[1].family)}" />
+          <FontHeader
+            font="{getFontByFamilyName(currentBracket.players[1].family)}" />
         {/if}
         <MonacoEditor
           class="rounded-container-token overflow-hidden"
           fontSize="{$fontSize}"
-          fontFamily="{bracket.players[1].family}"
+          fontFamily="{currentBracket.players[1].family}"
           fontLigatures="{$fontLigatures}"
           themeName="{$selectedTheme}" />
         <button
           class="btn variant-filled-primary absolute bottom-10 self-center shadow-xl"
-          on:click="{chooseWinner(bracket.players[1])}">Choose</button>
+          on:click="{chooseWinner(currentBracket.players[1])}">Choose</button>
       </div>
-    {:else if bracket?.winner}
+    {:else if currentBracket?.winner}
       <div
         class="relative p-6 md:p-10 col-span-1 row-span-2 md:col-span-2 md:row-span-1 text-center border-4 border-surface-900-50-token bg-surface-50-900-token">
         <img
@@ -149,8 +157,8 @@ function scrollToRight(element) {
           </div>
           <div
             class="text-4xl md:text-6xl my-4"
-            style="font-family: '{bracket?.winner.family}'">
-            {bracket?.winner.family}
+            style="font-family: '{currentBracket?.winner.family}'">
+            {currentBracket?.winner.family}
           </div>
           <h4 class="h4 [text-shadow:_0_4px_6px_black]">
             For mastering the art of bézier curve pageantry, where zeros, arrows
