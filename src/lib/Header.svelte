@@ -22,6 +22,7 @@ import { menuOpen } from '$lib/store';
     flex="flex"
     padding="px-2"
     border="border-none h3 relative"
+    hover=""
     active="before:content-['<'] after:content-['>']">
     <TabAnchor href="/game" selected="{$page.url.pathname === '/game'}"
       >Game</TabAnchor>

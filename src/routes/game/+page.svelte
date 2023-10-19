@@ -156,7 +156,7 @@ function scrollToBracket() {
             style="font-family: '{currentBracket?.winner.family}'">
             {currentBracket?.winner.family}
           </div>
-          <h4 class="h4 [text-shadow:_0_4px_6px_black]">
+          <h4 class="h4 dark:[text-shadow:_0_2px_3px_black]">
             For mastering the art of bézier curve pageantry, where zeros, arrows
             and curly brackets stand heroic in a 10-hour coding crusade! For
             turning each keystroke into a clear, courageous character,
