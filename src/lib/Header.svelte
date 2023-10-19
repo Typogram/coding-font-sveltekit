@@ -1,6 +1,6 @@
 <script lang="ts">
 import { page } from '$app/stores';
-import { TabGroup, Tab, TabAnchor } from '@skeletonlabs/skeleton';
+import { TabGroup, TabAnchor } from '@skeletonlabs/skeleton';
 import { IconMenu, Logo, ThemeSwitch } from '$lib';
 import { menuOpen } from '$lib/store';
 </script>

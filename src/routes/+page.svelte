@@ -2,6 +2,9 @@
 import { onMount, tick } from 'svelte';
 import { AppShell } from '@skeletonlabs/skeleton';
 import {
+  IconDownload,
+  IconExternalLink,
+  IconMaximize,
   Header,
   Sidebar,
   FontHeader,
@@ -155,6 +158,26 @@ function scrollToBracket() {
             class="text-4xl md:text-6xl my-4"
             style="font-family: '{currentBracket?.winner.family}'">
             {currentBracket?.winner.family}
+          </div>
+          <div
+            class="self-center btn-group variant-ringed-surface [&>*+*]:border-surface-400-500-token">
+            <a href="{currentBracket?.winner.siteUrl}" target="_blank">
+              <IconExternalLink size="24" />
+              <span class="hidden 2xl:block"
+                >Visit {currentBracket?.winner.family}</span>
+            </a>
+            <a href="{currentBracket?.winner.downloadUrl}">
+              <IconDownload size="24" />
+              <span class="hidden 2xl:block"
+                >Download {currentBracket?.winner.family}</span>
+            </a>
+            <a
+              href="/{encodeURIComponent(
+                currentBracket?.winner.family.replace(/\s+/g, '')
+              )}">
+              <IconMaximize size="24" />
+              <span class="hidden 2xl:block">View Font Detail</span>
+            </a>
           </div>
           <h4 class="h4">
             For mastering the art of bézier curve pageantry, where zeros, arrows
