@@ -1,0 +1,65 @@
+.round-1 .left-dot,
+.round-1 .left-line {
+  display: none;
+}
+
+.bracket-candidate .link-buttons {
+  display: none;
+}
+
+.bracket-candidate:hover .link-buttons {
+  display: grid;
+}
+
+.bracket-candidate:hover {
+  background: transparent;
+}
+
+.bracket-candidate:hover>.text-12-semibold {
+  display: none;
+}
+
+.round-2 {
+  padding-top: 15px;
+}
+
+.round-2 .font-bracket {
+  height: 79px;
+  margin-bottom: 37px;
+}
+
+.round-3 {
+  padding-top: 44px;
+}
+
+.round-3 .font-bracket {
+  height: 137px;
+  margin-bottom: 95px;
+}
+
+.round-4 {
+  padding-top: 102px;
+}
+
+.round-4 .font-bracket {
+  height: 253px;
+  margin-bottom: 211px;
+}
+
+.round-5 {
+  padding-top: 218px;
+}
+
+.round-5 .font-bracket {
+  height: 485px;
+  margin-bottom: 443px;
+}
+
+.left-dot-winner {
+  left: calc(50% - 112px);
+}
+
+.left-line-winner {
+  width: calc(50% - 110px);
+  left: 0;
+}

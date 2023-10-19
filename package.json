@@ -37,6 +37,7 @@
 	"type": "module",
 	"dependencies": {
 		"@floating-ui/dom": "^1.5.3",
+		"canvas-confetti": "^1.9.0",
 		"monaco-editor": "^0.44.0",
 		"monaco-themes": "^0.4.4"
 	}
