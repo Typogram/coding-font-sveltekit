@@ -1,7 +1,7 @@
 <script lang="ts">
 import { monacoThemeNames } from '$lib';
 import { RangeSlider } from '@skeletonlabs/skeleton';
-import { selectedTheme, fontSize, fontLigatures } from '$lib/store';
+import { showName, selectedTheme, fontSize, fontLigatures } from '$lib/store';
 
 const sortedMonacoThemes = monacoThemeNames.sort((a, b) => {
   if (a.italic && !b.italic) {
@@ -18,6 +18,10 @@ const sortedMonacoThemes = monacoThemeNames.sort((a, b) => {
 
 <div
   class="overflow-x-auto whitespace-nowrap bg-surface-100-800-token flex flex-row px-4 py-2 gap-4 border-b border-surface-400 dark:border-surface-500">
+  <label class="flex items-center space-x-2">
+    <input class="checkbox" type="checkbox" bind:checked="{$showName}" />
+    <span>Show Name</span>
+  </label>
   <label class="flex flex-row items-baseline gap-2 whitespace-nowrap">
     <span>Theme: </span>
     <select class="select min-w-[6rem]" bind:value="{$selectedTheme}" size="1">

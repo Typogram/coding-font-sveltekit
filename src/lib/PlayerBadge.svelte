@@ -3,5 +3,5 @@
   <div class="left-line"></div>
   <div class="right-dot"></div>
   <div class="right-line"></div>
-  <div class="text-sm"><slot /></div>
+  <div class="text-sm truncate"><slot /></div>
 </div>

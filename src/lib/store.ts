@@ -26,3 +26,5 @@ export const fontLigatures: Writable<boolean> = localStorageStore(
 export const searchTerm: Writable<string> = localStorageStore('searchTerm', '');
 
 export const menuOpen: Writable<boolean> = localStorageStore('menuOpen', false);
+
+export const showName: Writable<boolean> = localStorageStore('showName', false);
