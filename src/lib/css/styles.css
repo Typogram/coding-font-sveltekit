@@ -131,15 +131,9 @@
 
 .label-winner {
   z-index: 1;
-  height: 21px;
-  grid-column-gap: 8px;
-  grid-row-gap: 8px;
-  grid-template-rows: auto;
-  grid-template-columns: auto;
-  grid-auto-columns: auto;
-  grid-auto-flow: column;
   justify-content: center;
-  display: grid;
+  display: flex;
+  grid-gap: 8px;
   position: relative;
   @apply variant-filled-primary;
 }

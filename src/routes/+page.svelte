@@ -40,6 +40,7 @@ async function chooseWinner(player, event) {
   game = game;
   if (currentBracket?.winner) {
     createConfetti();
+    $showName = true;
   } else {
     createConfetti('small', {
       x: event.clientX / window.innerWidth,
@@ -79,7 +80,11 @@ function scrollToBracket() {
             {#each game.rounds as round, index (round)}
               {#if game.finalRound === index}
                 <div class="round-winner">
-                  <WinnerBadge>{round[0].winner.family}</WinnerBadge>
+                  <WinnerBadge>
+                    <span style="font-family: '{round[0].winner.family}'">
+                      {round[0].winner.family}
+                    </span>
+                  </WinnerBadge>
                 </div>
               {:else}
                 <div class="{`round-${index + 1}`}">
@@ -91,7 +96,7 @@ function scrollToBracket() {
                         <PlayerBadge
                           class="{bracket?.winner?.family == font.family
                             ? 'variant-ghost-primary'
-                            : 'variant-ghost-surface'}">
+                            : 'variant-soft-surface'}">
                           <span style="font-family: '{font.family}'">
                             {$showName ? font.family : 'ABC abc 123'}
                           </span>
