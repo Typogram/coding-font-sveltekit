@@ -13,7 +13,7 @@ export function scrollToTop() {
 
 <div
   bind:this="{sidebar}"
-  class="absolute lg:static z-20 flex flex-col w-[calc(100vw-4rem)] sm:w-[30rem] lg:w-full h-full overflow-x-visible overflow-y-auto p-4 gap-4 bg-surface-100-800-token border-r border-surface-400 dark:border-surface-500"
+  class="bg-surface-100-800-token absolute z-20 flex h-full w-[calc(100vw-4rem)] flex-col gap-4 overflow-y-auto overflow-x-visible border-r border-surface-400 p-4 dark:border-surface-500 sm:w-[30rem] lg:static lg:w-full"
   class:hide="{!$menuOpen}">
   <slot />
 </div>

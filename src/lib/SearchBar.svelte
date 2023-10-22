@@ -30,7 +30,7 @@ onMount(() => {
 
 <input
   bind:this="{searchInput}"
-  class="input py-2 px-4 max-w-[40rem]"
+  class="input max-w-[40rem] px-4 py-2"
   type="search"
   bind:value="{$searchTerm}"
   placeholder="{placeholderText}" />

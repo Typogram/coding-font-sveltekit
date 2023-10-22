@@ -72,7 +72,7 @@ function scrollToBracket() {
   </svelte:fragment>
   <svelte:fragment slot="sidebarLeft">
     <Sidebar>
-      <button class="btn variant-filled-primary" on:click="{startGame}"
+      <button class="variant-filled-primary btn" on:click="{startGame}"
         >Restart Game</button>
       {#if game?.rounds.length}
         <div class="table-container rounded-none p-2">
@@ -121,57 +121,57 @@ function scrollToBracket() {
     <Controls />
   </svelte:fragment>
   <div
-    class="grid grid-cols-1 grid-rows-2 md:grid-cols-2 md:grid-rows-1 h-full bg-surface-50-900-token p-4 gap-4">
+    class="bg-surface-50-900-token grid h-full grid-cols-1 grid-rows-2 gap-4 p-4 md:grid-cols-2 md:grid-rows-1">
     {#if currentBracket?.players?.length}
-      <div class="flex flex-col gap-4 relative">
+      <div class="relative flex flex-col gap-4">
         <FontHeader
           font="{getFontByFamilyName(currentBracket.players[0].family)}" />
         <MonacoEditor
-          class="rounded-container-token overflow-hidden"
+          class="overflow-hidden rounded-container-token"
           fontSize="{$fontSize}"
           fontFamily="{currentBracket.players[0].family}"
           fontLigatures="{$fontLigatures}"
           themeName="{$selectedTheme}" />
         <button
-          class="btn variant-filled-primary absolute bottom-10 self-center shadow-xl"
+          class="variant-filled-primary btn absolute bottom-10 self-center shadow-xl"
           on:click="{(e) => chooseWinner(currentBracket.players[0], e)}"
           >Choose</button>
       </div>
-      <div class="flex flex-col gap-4 relative">
+      <div class="relative flex flex-col gap-4">
         <FontHeader
           font="{getFontByFamilyName(currentBracket.players[1].family)}" />
         <MonacoEditor
-          class="rounded-container-token overflow-hidden"
+          class="overflow-hidden rounded-container-token"
           fontSize="{$fontSize}"
           fontFamily="{currentBracket.players[1].family}"
           fontLigatures="{$fontLigatures}"
           themeName="{$selectedTheme}" />
         <button
-          class="btn variant-filled-primary absolute bottom-10 self-center shadow-xl"
+          class="variant-filled-primary btn absolute bottom-10 self-center shadow-xl"
           on:click="{(e) => chooseWinner(currentBracket.players[1], e)}"
           >Choose</button>
       </div>
     {:else if currentBracket?.winner}
       <div
-        class="relative p-6 md:p-10 col-span-1 row-span-2 md:col-span-2 md:row-span-1 text-center border-4 border-surface-900-50-token bg-surface-50-900-token">
+        class="bg-surface-50-900-token border-surface-900-50-token relative col-span-1 row-span-2 border-4 p-6 text-center md:col-span-2 md:row-span-1 md:p-10">
         <img
-          class="absolute bottom-0 mx-auto left-0 right-0 opacity-60"
+          class="absolute bottom-0 left-0 right-0 mx-auto opacity-60"
           src="/trophy.png"
           alt="Trophy of Font"
           width="400" />
         <div
-          class="p-4 md:p-10 relative max-w-5xl mx-auto flex flex-col gap-12">
+          class="relative mx-auto flex max-w-5xl flex-col gap-12 p-4 md:p-10">
           <div
-            class="border-t-2 pt-10 border-surface-700-200-token flex flex-col gap-6 tracking-widest">
+            class="border-surface-700-200-token flex flex-col gap-6 border-t-2 pt-10 tracking-widest">
             <h2 class="h2">CERTIFICATE OF ABSOLUTE AWESOMENESS</h2>
             <h4 class="h4">HEREBY UNLEASHED UPON</h4>
           </div>
           <div
-            class="text-4xl md:text-6xl my-4"
+            class="my-4 text-4xl md:text-6xl"
             style="font-family: '{currentBracket?.winner.family}'">
             {currentBracket?.winner.family}
           </div>
-          <div class="self-center btn-group variant-soft-surface">
+          <div class="variant-soft-surface btn-group self-center">
             <a href="{currentBracket?.winner.siteUrl}" target="_blank">
               <IconExternalLink size="24" />
               <span class="hidden 2xl:block"
@@ -196,7 +196,7 @@ function scrollToBracket() {
             turning each keystroke into a clear, courageous character,
             triumphing in the tumultuous tournament of type!
           </h4>
-          <div class="justify-between mt-20 hidden md:flex">
+          <div class="mt-20 hidden justify-between md:flex">
             <div>
               <p class="mb-2">__________________________</p>
               <p class="text-center">HEAD OF DEPARTMENT</p>

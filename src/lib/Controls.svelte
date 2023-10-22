@@ -17,7 +17,7 @@ const sortedMonacoThemes = monacoThemeNames.sort((a, b) => {
 </script>
 
 <div
-  class="overflow-x-auto whitespace-nowrap bg-surface-100-800-token flex flex-row px-4 py-2 gap-4 border-b border-surface-400 dark:border-surface-500">
+  class="bg-surface-100-800-token flex flex-row gap-4 overflow-x-auto whitespace-nowrap border-b border-surface-400 px-4 py-2 dark:border-surface-500">
   <label class="flex items-center space-x-2">
     <input class="checkbox" type="checkbox" bind:checked="{$showName}" />
     <span>Show Name</span>
@@ -32,7 +32,7 @@ const sortedMonacoThemes = monacoThemeNames.sort((a, b) => {
   </label>
   <label class="flex flex-row items-baseline gap-2 whitespace-nowrap">
     <span>Font Size: </span>
-    <input class="input w-16 min-w-12" bind:value="{$fontSize}" type="number" />
+    <input class="min-w-12 input w-16" bind:value="{$fontSize}" type="number" />
     <RangeSlider
       class="w-40 lg:w-60"
       name="font-size-slider"

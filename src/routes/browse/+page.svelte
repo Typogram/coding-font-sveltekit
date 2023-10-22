@@ -50,27 +50,27 @@ $: if ($searchTerm) {
     <Controls />
   </svelte:fragment>
   <div
-    class="grid grid-cols-1 md:grid-cols-2 h-full bg-surface-50-900-token p-4 gap-4">
+    class="bg-surface-50-900-token grid h-full grid-cols-1 gap-4 p-4 md:grid-cols-2">
     <div class="flex flex-col gap-4" class:col-span-2="{!$fontFamilyRight}">
       <FontHeader font="{getFontByFamilyName($fontFamily)}" />
       <MonacoEditor
-        class="rounded-container-token overflow-hidden"
+        class="overflow-hidden rounded-container-token"
         fontSize="{$fontSize}"
         fontFamily="{$fontFamily}"
         fontLigatures="{$fontLigatures}"
         themeName="{$selectedTheme}" />
     </div>
     {#if $fontFamilyRight}
-      <div class="hidden md:flex flex-col gap-4 relative">
+      <div class="relative hidden flex-col gap-4 md:flex">
         <FontHeader font="{getFontByFamilyName($fontFamilyRight)}" />
         <MonacoEditor
-          class="rounded-container-token overflow-hidden"
+          class="overflow-hidden rounded-container-token"
           fontSize="{$fontSize}"
           fontFamily="{$fontFamilyRight}"
           fontLigatures="{$fontLigatures}"
           themeName="{$selectedTheme}" />
         <button
-          class="btn variant-filled-surface absolute bottom-4 self-center"
+          class="variant-filled-surface btn absolute bottom-4 self-center"
           on:click="{() => {
             $fontFamilyRight = '';
           }}">Clear Comparison</button>

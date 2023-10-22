@@ -11,7 +11,7 @@ export let fonts;
 </script>
 
 <div class="table-container whitespace-nowrap">
-  <table class="table table-hover table-compact table-interactive">
+  <table class="table table-interactive table-hover table-compact">
     <thead>
       <tr>
         <th>Font Family</th>
@@ -29,11 +29,11 @@ export let fonts;
           class:!variant-ghost-primary="{$fontFamily === font.family}">
           <td
             style="font-family: '{font.family}'"
-            class="!whitespace-nowrap max-w-[9rem] truncate"
+            class="max-w-[9rem] truncate !whitespace-nowrap"
             >{$showName ? font.family : 'ABC abc 123'}</td>
           <td class="hidden md:table-cell">
             <button
-              class="btn btn-sm variant-ringed-surface"
+              class="variant-ringed-surface btn btn-sm"
               class:!variant-ghost-primary="{font.family === $fontFamilyRight}"
               on:click|stopPropagation="{() => {
                 $fontFamilyRight = font.family;
@@ -44,7 +44,7 @@ export let fonts;
           </td>
           <td>
             <div
-              class="btn-group variant-ringed-surface [&>*+*]:border-surface-400-500-token">
+              class="variant-ringed-surface btn-group [&>*+*]:border-surface-400-500-token">
               <a href="{font?.siteUrl}" target="_blank" class="!p-2 !pl-3">
                 <IconExternalLink size="16" />
               </a>

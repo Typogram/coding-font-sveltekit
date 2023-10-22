@@ -5,12 +5,12 @@ export let font: any;
 </script>
 
 {#if $showName}
-  <div class="flex flex-row justify-between items-center">
+  <div class="flex flex-row items-center justify-between">
     <a
       href="/{encodeURIComponent(font.family.replace(/\s+/g, ''))}"
-      class="h3 whitespace-nowrap truncate hover:underline">{font.family}</a>
+      class="h3 truncate whitespace-nowrap hover:underline">{font.family}</a>
     <div
-      class="btn-group variant-ringed-surface [&>*+*]:border-surface-400-500-token">
+      class="variant-ringed-surface btn-group [&>*+*]:border-surface-400-500-token">
       <a href="{font.siteUrl}" target="_blank">
         <IconExternalLink size="24" />
         <span class="hidden 2xl:block">Visit {font.family}</span>

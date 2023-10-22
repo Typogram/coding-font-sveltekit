@@ -5,8 +5,10 @@
   "printWidth": 80,
   "proseWrap": "never",
   "bracketSameLine": true,
-  "svelteSortOrder": "scripts-markup-styles",
+  "tabWidth": 2,
+  "svelteSortOrder": "scripts-markup-styles-options",
   "svelteStrictMode": true,
   "svelteAllowShorthand": false,
-  "svelteIndentScriptAndStyle": false
+  "svelteIndentScriptAndStyle": false,
+  "plugins": ["prettier-plugin-svelte", "prettier-plugin-tailwindcss"]
 }

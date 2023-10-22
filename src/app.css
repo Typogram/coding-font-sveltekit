@@ -10,13 +10,15 @@
   font-family: 'Hack';
   font-style: normal;
   font-weight: 400;
-  src: url('https://cdn.jsdelivr.net/npm/hack-font@3.3.0/build/web/fonts/hack-regular-subset.woff2') format('woff2');
+  src: url('https://cdn.jsdelivr.net/npm/hack-font@3.3.0/build/web/fonts/hack-regular-subset.woff2')
+    format('woff2');
 }
 @font-face {
   font-family: 'Hack';
   font-style: italic;
   font-weight: 400;
-  src: url('https://cdn.jsdelivr.net/npm/hack-font@3.3.0/build/web/fonts/hack-italic-subset.woff2') format('woff2');
+  src: url('https://cdn.jsdelivr.net/npm/hack-font@3.3.0/build/web/fonts/hack-italic-subset.woff2')
+    format('woff2');
 }
 
 :focus,
@@ -36,7 +38,6 @@ table tr td {
 .hide {
   @apply hidden lg:flex;
 }
-
 
 /* seafoam theme */
 @font-face {

@@ -103,4 +103,4 @@ $: if (editor) {
 }
 </script>
 
-<div class="{$$props.class} w-full h-full" bind:this="{editorContainer}"></div>
+<div class="{$$props.class} h-full w-full" bind:this="{editorContainer}"></div>

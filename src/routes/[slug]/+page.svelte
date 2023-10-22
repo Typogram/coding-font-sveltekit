@@ -71,7 +71,7 @@ function getFontByFamilyName(familyName: string) {
         </div>
         <div
           style="font-family: '{currentFont.family}'"
-          class="card relative flex flex-col items-center justify-center min-h-[10rem] whitespace-nowrap overflow-hidden bg-white dark:bg-surface-900 border-surface-400-500-token border-token">
+          class="card border-surface-400-500-token relative flex min-h-[10rem] flex-col items-center justify-center overflow-hidden whitespace-nowrap bg-white border-token dark:bg-surface-900">
           <div class="code absolute bottom-0 right-0">regular</div>
           <span>{`0oO | Ll1Iti ,.:; () [] {} <> * ??. !!`}</span>
           <span>{`"" '' != == === if 0123456789 %@ && ||`}</span>
@@ -82,7 +82,7 @@ function getFontByFamilyName(familyName: string) {
         {#if currentFont?.variants.includes('italic')}
           <div
             style="font-family: '{currentFont.family}'; font-style: italic;"
-            class="card relative flex flex-col items-center justify-center min-h-[10rem] whitespace-nowrap overflow-hidden bg-white dark:bg-surface-900 border-surface-400-500-token border-token">
+            class="card border-surface-400-500-token relative flex min-h-[10rem] flex-col items-center justify-center overflow-hidden whitespace-nowrap bg-white border-token dark:bg-surface-900">
             <div class="code absolute bottom-0 right-0">italic</div>
             <span>{`0oO | Ll1Iti ,.:; () [] {} <> * ??. !!`}</span>
             <span>{`"" '' != == === if 0123456789 %@ && ||`}</span>
@@ -91,9 +91,9 @@ function getFontByFamilyName(familyName: string) {
             <span>{`Nn Oo Pp Qq Rr Ss Tt Uu Vv Ww Xx Yy Zz`}</span>
           </div>
         {/if}
-        <div class="table-container !rounded-none !overflow-x-hidden">
+        <div class="table-container !overflow-x-hidden !rounded-none">
           <table
-            class="table table-compact text-left !whitespace-nowrap !rounded-none">
+            class="table table-compact !whitespace-nowrap !rounded-none text-left">
             <tbody>
               <tr>
                 <th>Dowload URL</th>
@@ -122,7 +122,7 @@ function getFontByFamilyName(familyName: string) {
       <hr />
       <SearchBar />
       <table
-        class="table table-hover table-compact table-interactive !rounded-none">
+        class="table table-interactive table-hover table-compact !rounded-none">
         <tbody>
           {#each fonts as font (font)}
             <tr
@@ -133,11 +133,11 @@ function getFontByFamilyName(familyName: string) {
                 font.family}">
               <td
                 style="font-family: '{font.family}'"
-                class="!whitespace-nowrap max-w-[9rem] truncate"
+                class="max-w-[9rem] truncate !whitespace-nowrap"
                 >{font.family}</td>
               <td class="hidden md:table-cell">
                 <button
-                  class="btn btn-sm variant-ringed-surface"
+                  class="variant-ringed-surface btn btn-sm"
                   class:!variant-ghost-primary="{font.family ===
                     $fontFamilyRight}"
                   on:click|stopPropagation="{() => {
@@ -149,7 +149,7 @@ function getFontByFamilyName(familyName: string) {
               </td>
               <td>
                 <div
-                  class="btn-group variant-ringed-surface [&>*+*]:border-surface-400-500-token">
+                  class="variant-ringed-surface btn-group [&>*+*]:border-surface-400-500-token">
                   <a href="{font?.siteUrl}" target="_blank" class="!p-2 !pl-3">
                     <IconExternalLink size="16" />
                   </a>
@@ -168,27 +168,27 @@ function getFontByFamilyName(familyName: string) {
     <Controls />
   </svelte:fragment>
   <div
-    class="grid grid-cols-1 md:grid-cols-2 h-full bg-surface-50-900-token p-4 gap-4">
+    class="bg-surface-50-900-token grid h-full grid-cols-1 gap-4 p-4 md:grid-cols-2">
     <div class="flex flex-col gap-4" class:col-span-2="{!$fontFamilyRight}">
       <FontHeader font="{currentFont}" />
       <MonacoEditor
-        class="rounded-container-token overflow-hidden"
+        class="overflow-hidden rounded-container-token"
         fontSize="{$fontSize}"
         fontFamily="{currentFont?.family}"
         fontLigatures="{$fontLigatures}"
         themeName="{$selectedTheme}" />
     </div>
     {#if $fontFamilyRight}
-      <div class="hidden md:flex flex-col gap-4 relative">
+      <div class="relative hidden flex-col gap-4 md:flex">
         <FontHeader font="{getFontByFamilyName($fontFamilyRight)}" />
         <MonacoEditor
-          class="rounded-container-token overflow-hidden"
+          class="overflow-hidden rounded-container-token"
           fontSize="{$fontSize}"
           fontFamily="{$fontFamilyRight}"
           fontLigatures="{$fontLigatures}"
           themeName="{$selectedTheme}" />
         <button
-          class="btn variant-filled-surface absolute bottom-10 self-center"
+          class="variant-filled-surface btn absolute bottom-10 self-center"
           on:click="{() => {
             $fontFamilyRight = '';
           }}">Clear Comparison</button>

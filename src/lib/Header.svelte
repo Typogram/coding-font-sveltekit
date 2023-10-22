@@ -6,16 +6,16 @@ import { menuOpen } from '$lib/store';
 </script>
 
 <div
-  class="flex flex-row items-center justify-between p-4 gap-4 bg-surface-100-800-token border-b border-surface-400 dark:border-surface-700">
-  <div class="flex gap-4 items-center justify-center">
+  class="bg-surface-100-800-token flex flex-row items-center justify-between gap-4 border-b border-surface-400 p-4 dark:border-surface-700">
+  <div class="flex items-center justify-center gap-4">
     <button
-      class="btn-icon variant-soft lg:hidden"
+      class="variant-soft btn-icon lg:hidden"
       on:click="{() => {
         $menuOpen = !$menuOpen;
       }}">
       <IconMenu size="24" />
     </button>
-    <a href="/"><Logo class="w-auto h-[3rem]" /></a>
+    <a href="/"><Logo class="h-[3rem] w-auto" /></a>
   </div>
 
   <TabGroup

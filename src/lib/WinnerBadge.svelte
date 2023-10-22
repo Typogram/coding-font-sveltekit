@@ -1,4 +1,4 @@
-<div class="winner-candidate rounded overflow-hidden variant-ghost-primary">
+<div class="winner-candidate variant-ghost-primary overflow-hidden rounded">
   <div class="label-winner items-baseline">
     <svg
       width="15"

@@ -55,14 +55,14 @@ function handleChangeTheme(selectedTheme) {
 }
 </script>
 
-<button class="btn-icon variant-soft" use:popup="{popupFeatured}">
+<button class="variant-soft btn-icon" use:popup="{popupFeatured}">
   <IconColorSwatch size="24" />
 </button>
 <div
-  class="card z-30 bg-surface-200-700-token p-4 w-60 shadow-xl"
+  class="card bg-surface-200-700-token z-30 w-60 p-4 shadow-xl"
   data-popup="popupFeatured">
   <LightSwitch />
-  <div class="flex flex-col mt-4 gap-2">
+  <div class="mt-4 flex flex-col gap-2">
     {#each themes as themeItem}
       <button
         class="btn hover:variant-soft-secondary"
