@@ -21,9 +21,26 @@ export let data;
 let { fonts } = data;
 let game;
 let currentBracket;
+let leftButton, rightButton;
 
 onMount(() => {
   startGame();
+  function handleKeydown(event) {
+    if (currentBracket?.players?.length) {
+      if (event.key === 'ArrowLeft' || event.keyCode === 37) {
+        chooseWinner(currentBracket.players[0], leftButton);
+      } else if (event.key === 'ArrowRight' || event.keyCode === 39) {
+        chooseWinner(currentBracket.players[1], rightButton);
+      }
+    }
+  }
+
+  window.addEventListener('keydown', handleKeydown);
+
+  // Clean up the event listener when the component is destroyed
+  return () => {
+    window.removeEventListener('keydown', handleKeydown);
+  };
 });
 
 function startGame() {
@@ -35,16 +52,17 @@ function getFontByFamilyName(familyName: string) {
   return fonts.find((font) => font.family === familyName);
 }
 
-async function chooseWinner(player, event) {
+async function chooseWinner(player, button) {
   currentBracket = game.setWinner(player);
   game = game;
   if (currentBracket?.winner) {
     createConfetti();
     $showName = true;
   } else {
+    const { x, y, width, height } = button.getBoundingClientRect();
     createConfetti('small', {
-      x: event.clientX / window.innerWidth,
-      y: event.clientY / window.innerHeight
+      x: (x + width / 2) / window.innerWidth,
+      y: (y + height / 2) / window.innerHeight
     });
   }
   await tick();
@@ -133,9 +151,11 @@ function scrollToBracket() {
           fontLigatures="{$fontLigatures}"
           themeName="{$selectedTheme}" />
         <button
-          class="variant-filled-primary btn absolute bottom-10 self-center shadow-xl"
-          on:click="{(e) => chooseWinner(currentBracket.players[0], e)}"
-          >Choose</button>
+          bind:this="{leftButton}"
+          class="variant-filled-primary btn absolute bottom-10 block self-center shadow-xl"
+          on:click="{(e) =>
+            chooseWinner(currentBracket.players[0], leftButton)}"
+          >Choose or press <kbd class="kbd">⇽</kbd></button>
       </div>
       <div class="relative flex flex-col gap-4">
         <FontHeader
@@ -147,9 +167,11 @@ function scrollToBracket() {
           fontLigatures="{$fontLigatures}"
           themeName="{$selectedTheme}" />
         <button
-          class="variant-filled-primary btn absolute bottom-10 self-center shadow-xl"
-          on:click="{(e) => chooseWinner(currentBracket.players[1], e)}"
-          >Choose</button>
+          bind:this="{rightButton}"
+          class="variant-filled-primary btn absolute bottom-10 block self-center shadow-xl"
+          on:click="{(e) =>
+            chooseWinner(currentBracket.players[1], rightButton)}"
+          >Choose or press <kbd class="kbd">⇾</kbd></button>
       </div>
     {:else if currentBracket?.winner}
       <div
