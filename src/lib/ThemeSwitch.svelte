@@ -1,40 +1,14 @@
 <script lang="ts">
 import { onMount } from 'svelte';
+import { fly } from 'svelte/transition';
 import type { Writable } from 'svelte/store';
-import {
-  LightSwitch,
-  popup,
-  storePopup,
-  localStorageStore
-} from '@skeletonlabs/skeleton';
-import type { PopupSettings } from '@skeletonlabs/skeleton';
-import {
-  computePosition,
-  autoUpdate,
-  offset,
-  shift,
-  flip,
-  arrow
-} from '@floating-ui/dom';
+import { LightSwitch, localStorageStore } from '@skeletonlabs/skeleton';
 import { IconColorSwatch } from '$lib';
 
-storePopup.set({ computePosition, autoUpdate, offset, shift, flip, arrow });
 const themeSelection: Writable<string> = localStorageStore(
   'themeSelection',
   'standard'
 );
-
-const popupFeatured: PopupSettings = {
-  event: 'click',
-  target: 'popupFeatured',
-  placement: 'bottom',
-  closeQuery: '#closeButton'
-};
-
-onMount(() => {
-  document.body.setAttribute('data-theme', $themeSelection);
-});
-
 const themes = [
   { id: 'standard', displayName: 'Standard' },
   { id: 'modern', displayName: 'Modern' },
@@ -48,6 +22,11 @@ const themes = [
   { id: 'hamlindigo', displayName: 'Hamlindigo' },
   { id: 'gold-nouveau', displayName: 'Gold Nouveau' }
 ];
+let isOpen = false;
+
+onMount(() => {
+  document.body.setAttribute('data-theme', $themeSelection);
+});
 
 function handleChangeTheme(selectedTheme) {
   $themeSelection = selectedTheme;
@@ -55,21 +34,32 @@ function handleChangeTheme(selectedTheme) {
 }
 </script>
 
-<button class="variant-soft btn-icon" use:popup="{popupFeatured}">
-  <IconColorSwatch size="24" />
-</button>
-<div
-  class="card bg-surface-200-700-token z-30 w-60 p-4 shadow-xl"
-  data-popup="popupFeatured">
-  <LightSwitch />
-  <div class="mt-4 flex flex-col gap-2">
-    {#each themes as themeItem}
-      <button
-        class="btn hover:variant-soft-secondary"
-        class:!variant-filled="{themeItem.id === $themeSelection}"
-        on:click="{() => handleChangeTheme(themeItem.id)}">
-        {themeItem.displayName}
-      </button>
-    {/each}
-  </div>
+<div class="relative">
+  <button
+    class="variant-soft btn-icon"
+    on:click="{() => {
+      isOpen = !isOpen;
+    }}">
+    <IconColorSwatch size="24" />
+  </button>
+  {#if isOpen}
+    <div
+      transition:fly="{{
+        duration: 200,
+        y: 20
+      }}"
+      class="card bg-surface-200-700-token absolute right-0 top-full z-30 mt-2 h-auto w-60 p-4 shadow-xl">
+      <LightSwitch />
+      <div class="mt-4 flex flex-col gap-2">
+        {#each themes as themeItem}
+          <button
+            class="btn hover:variant-soft-secondary"
+            class:!variant-filled="{themeItem.id === $themeSelection}"
+            on:click="{() => handleChangeTheme(themeItem.id)}">
+            {themeItem.displayName}
+          </button>
+        {/each}
+      </div>
+    </div>
+  {/if}
 </div>
