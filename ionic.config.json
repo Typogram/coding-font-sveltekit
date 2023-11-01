@@ -1,0 +1,7 @@
+{
+  "name": "coding-font-tournament",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "custom"
+}

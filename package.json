@@ -1,5 +1,5 @@
 {
-  "name": "skeleton-playground",
+  "name": "coding-font-tournament",
   "version": "0.0.1",
   "scripts": {
     "dev": "vite dev",
@@ -8,9 +8,12 @@
     "check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
     "check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
     "lint": "prettier --plugin-search-dir . --check .",
-    "format": "prettier --write --plugin prettier-plugin-svelte --plugin prettier-plugin-tailwindcss ."
+    "format": "prettier --write --plugin prettier-plugin-svelte --plugin prettier-plugin-tailwindcss .",
+    "ionic:build": "npm run build",
+    "ionic:serve": "npm run dev"
   },
   "devDependencies": {
+    "@capacitor/cli": "^5.5.1",
     "@fontsource/fira-mono": "^4.5.10",
     "@neoconfetti/svelte": "^1.0.0",
     "@skeletonlabs/skeleton": "^2.2.0",
@@ -38,5 +41,10 @@
     "typescript": "^5.0.0",
     "vite": "^4.4.2"
   },
-  "type": "module"
+  "type": "module",
+  "dependencies": {
+    "@capacitor/android": "^5.5.1",
+    "@capacitor/core": "^5.5.1",
+    "@capacitor/ios": "^5.5.1"
+  }
 }
