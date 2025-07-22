@@ -27,7 +27,8 @@ import { menuOpen } from '$lib/store';
     <TabAnchor href="/" selected="{$page.url.pathname === '/'}">Game</TabAnchor>
     <TabAnchor href="/browse" selected="{$page.url.pathname === '/browse'}"
       >Browse</TabAnchor>
-    <TabAnchor href="https://typogram.co/">Typogram</TabAnchor>
+    <TabAnchor href="https://typogram.co/studio/" class="ml-4"
+      >Studio</TabAnchor>
   </TabGroup>
 
   <ThemeSwitch />
