@@ -175,20 +175,6 @@ const codingFonts = [
     downloadUrl: 'https://fonts.google.com/download?family=Fira%20Code'
   },
   {
-    family: 'Fira Mono',
-    variants: ['regular', '500', '700'],
-    files: {
-      '500':
-        'http://fonts.gstatic.com/s/firamono/v14/N0bS2SlFPv1weGeLZDto1d33mf3VaZBRBQ.ttf',
-      '700':
-        'http://fonts.gstatic.com/s/firamono/v14/N0bS2SlFPv1weGeLZDtondv3mf3VaZBRBQ.ttf',
-      regular:
-        'http://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtQIfTTkdbJYA.ttf'
-    },
-    siteUrl: 'https://fonts.google.com/specimen/Fira+Mono',
-    downloadUrl: 'https://fonts.google.com/download?family=Fira%20Mono'
-  },
-  {
     family: 'Hack',
     variants: ['regular', 'italic', '700', '700italic'],
     files: {
@@ -336,17 +322,6 @@ const codingFonts = [
     },
     siteUrl: 'https://fonts.google.com/specimen/JetBrains+Mono',
     downloadUrl: 'https://fonts.google.com/download?family=JetBrains%20Mono'
-  },
-  {
-    family: 'Major Mono Display',
-    variants: ['regular'],
-    files: {
-      regular:
-        'http://fonts.gstatic.com/s/majormonodisplay/v12/RWmVoLyb5fEqtsfBX9PDZIGr2tFubRhLCn2QIndPww.ttf'
-    },
-    siteUrl: 'https://fonts.google.com/specimen/Major+Mono+Display',
-    downloadUrl:
-      'https://fonts.google.com/download?family=Major%20Mono%20Display'
   },
   {
     family: 'Nanum Gothic Coding',
@@ -696,16 +671,6 @@ const codingFonts = [
     downloadUrl: 'https://rubjo.github.io/victor-mono/VictorMonoAll.zip'
   },
   {
-    family: 'VT323',
-    variants: ['regular'],
-    files: {
-      regular:
-        'http://fonts.gstatic.com/s/vt323/v15/pxiKyp0ihIEF2hsYHpT2dkNE.ttf'
-    },
-    siteUrl: 'https://fonts.google.com/specimen/VT323',
-    downloadUrl: 'https://fonts.google.com/download?family=VT323'
-  },
-  {
     family: 'Xanh Mono',
     variants: ['regular', 'italic'],
     files: {
@@ -716,7 +681,94 @@ const codingFonts = [
     },
     siteUrl: 'https://fonts.google.com/specimen/Xanh+Mono',
     downloadUrl: 'https://fonts.google.com/download?family=Xanh%20Mono'
+  },
+  {
+    family: 'Atkinson Hyperlegible Mono',
+    variants: [
+      '200',
+      '300',
+      'regular',
+      '500',
+      '600',
+      '700',
+      '800',
+      '200italic',
+      '300italic',
+      'italic',
+      '500italic',
+      '600italic',
+      '700italic',
+      '800italic'
+    ],
+    files: {
+      '200':
+        'https://fonts.gstatic.com/s/atkinsonhyperlegiblemono/v7/tssNAoFBci4C4gvhPXrt3wjT1MqSzhA4t7IIcncBiyihrK15gZ4k_SaZnNeiDSkb2qzelw.ttf',
+      '300':
+        'https://fonts.gstatic.com/s/atkinsonhyperlegiblemono/v7/tssNAoFBci4C4gvhPXrt3wjT1MqSzhA4t7IIcncBiyihrK15gZ4k_SaZQteiDSkb2qzelw.ttf',
+      '500':
+        'https://fonts.gstatic.com/s/atkinsonhyperlegiblemono/v7/tssNAoFBci4C4gvhPXrt3wjT1MqSzhA4t7IIcncBiyihrK15gZ4k_SaZLteiDSkb2qzelw.ttf',
+      '600':
+        'https://fonts.gstatic.com/s/atkinsonhyperlegiblemono/v7/tssNAoFBci4C4gvhPXrt3wjT1MqSzhA4t7IIcncBiyihrK15gZ4k_SaZwtCiDSkb2qzelw.ttf',
+      '700':
+        'https://fonts.gstatic.com/s/atkinsonhyperlegiblemono/v7/tssNAoFBci4C4gvhPXrt3wjT1MqSzhA4t7IIcncBiyihrK15gZ4k_SaZ-9CiDSkb2qzelw.ttf',
+      '800':
+        'https://fonts.gstatic.com/s/atkinsonhyperlegiblemono/v7/tssNAoFBci4C4gvhPXrt3wjT1MqSzhA4t7IIcncBiyihrK15gZ4k_SaZnNCiDSkb2qzelw.ttf',
+      regular:
+        'https://fonts.gstatic.com/s/atkinsonhyperlegiblemono/v7/tssNAoFBci4C4gvhPXrt3wjT1MqSzhA4t7IIcncBiyihrK15gZ4k_SaZHNeiDSkb2qzelw.ttf',
+      '200italic':
+        'https://fonts.gstatic.com/s/atkinsonhyperlegiblemono/v7/tssPAoFBci4C4gvhPXrt3wjT1MqSzhA4t7IIcncBiwKonlKh6PW-UyGM1JTKTiMf-KnOlxYs.ttf',
+      '300italic':
+        'https://fonts.gstatic.com/s/atkinsonhyperlegiblemono/v7/tssPAoFBci4C4gvhPXrt3wjT1MqSzhA4t7IIcncBiwKonlKh6PW-UyGM1JQUTiMf-KnOlxYs.ttf',
+      italic:
+        'https://fonts.gstatic.com/s/atkinsonhyperlegiblemono/v7/tssPAoFBci4C4gvhPXrt3wjT1MqSzhA4t7IIcncBiwKonlKh6PW-UyGM1JRKTiMf-KnOlxYs.ttf',
+      '500italic':
+        'https://fonts.gstatic.com/s/atkinsonhyperlegiblemono/v7/tssPAoFBci4C4gvhPXrt3wjT1MqSzhA4t7IIcncBiwKonlKh6PW-UyGM1JR4TiMf-KnOlxYs.ttf',
+      '600italic':
+        'https://fonts.gstatic.com/s/atkinsonhyperlegiblemono/v7/tssPAoFBci4C4gvhPXrt3wjT1MqSzhA4t7IIcncBiwKonlKh6PW-UyGM1JSUSSMf-KnOlxYs.ttf',
+      '700italic':
+        'https://fonts.gstatic.com/s/atkinsonhyperlegiblemono/v7/tssPAoFBci4C4gvhPXrt3wjT1MqSzhA4t7IIcncBiwKonlKh6PW-UyGM1JStSSMf-KnOlxYs.ttf',
+      '800italic':
+        'https://fonts.gstatic.com/s/atkinsonhyperlegiblemono/v7/tssPAoFBci4C4gvhPXrt3wjT1MqSzhA4t7IIcncBiwKonlKh6PW-UyGM1JTKSSMf-KnOlxYs.ttf'
+    },
+    siteUrl: 'https://fonts.google.com/specimen/Atkinson+Hyperlegible+Mono',
+    downloadUrl:
+      'https://fonts.google.com/download?family=Atkinson%20Hyperlegible%20Mono'
   }
+  /* {
+    family: 'VT323',
+    variants: ['regular'],
+    files: {
+      regular:
+        'http://fonts.gstatic.com/s/vt323/v15/pxiKyp0ihIEF2hsYHpT2dkNE.ttf'
+    },
+    siteUrl: 'https://fonts.google.com/specimen/VT323',
+    downloadUrl: 'https://fonts.google.com/download?family=VT323'
+  },
+  {
+    family: 'Fira Mono',
+    variants: ['regular', '500', '700'],
+    files: {
+      '500':
+        'http://fonts.gstatic.com/s/firamono/v14/N0bS2SlFPv1weGeLZDto1d33mf3VaZBRBQ.ttf',
+      '700':
+        'http://fonts.gstatic.com/s/firamono/v14/N0bS2SlFPv1weGeLZDtondv3mf3VaZBRBQ.ttf',
+      regular:
+        'http://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtQIfTTkdbJYA.ttf'
+    },
+    siteUrl: 'https://fonts.google.com/specimen/Fira+Mono',
+    downloadUrl: 'https://fonts.google.com/download?family=Fira%20Mono'
+  }, 
+  {
+    family: 'Major Mono Display',
+    variants: ['regular'],
+    files: {
+      regular:
+        'http://fonts.gstatic.com/s/majormonodisplay/v12/RWmVoLyb5fEqtsfBX9PDZIGr2tFubRhLCn2QIndPww.ttf'
+    },
+    siteUrl: 'https://fonts.google.com/specimen/Major+Mono+Display',
+    downloadUrl:
+      'https://fonts.google.com/download?family=Major%20Mono%20Display'
+  }*/
 ];
 
 export default codingFonts;

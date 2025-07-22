@@ -7,7 +7,7 @@ import htmlWorker from 'monaco-editor/esm/vs/language/html/html.worker?worker';
 import tsWorker from 'monaco-editor/esm/vs/language/typescript/ts.worker?worker';
 import { monacoThemes } from './monacoThemes';
 
-export let fontFamily = 'Major Mono Display';
+export let fontFamily = 'JetBrains Mono';
 export let fontSize = 20;
 export let fontLigatures = true;
 export let themeName = 'monokai';
